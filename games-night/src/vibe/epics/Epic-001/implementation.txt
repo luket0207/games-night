@@ -8,6 +8,7 @@ Implementation log
   - Added lightweight English and Japanese copy switching with shared home/language controls.
   - Added homepage QR dialogs and the Matrix Game external link flow.
   - Added GitHub Pages deployment configuration and SPA fallback files.
+  - Created the initial repository commit, pushed `main`, and published the `gh-pages` branch.
 - Exact scope completed:
   - Feature-001 through Feature-005 from `src/vibe/epics/Epic-001/features.txt`.
 - Existing components/hooks/utilities/styles considered:

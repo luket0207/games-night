@@ -76,7 +76,7 @@ Notes
 - Do not recreate the repository.
 - Do not create a new app from scratch.
 - Use the existing project.
-- Completed with `homepage`, `predeploy`, and `deploy` scripts plus SPA fallback files for GitHub Pages routing.
+- Completed with `homepage`, `predeploy`, and `deploy` scripts, SPA fallback files, a published `gh-pages` branch, and an initial remote `main` branch push.
 
 
 Feature-003: Bilingual language switching

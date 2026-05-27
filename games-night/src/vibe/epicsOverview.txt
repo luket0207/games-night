@@ -5,6 +5,7 @@ Epic-001
   - Replaced the CRA boilerplate with a routed mobile-width app shell and page-level SCSS.
   - Added bilingual homepage/Total Rickall routing with shared home and language icons.
   - Added QR modals, Matrix Game linking, and GitHub Pages deploy configuration.
+  - Published the `gh-pages` branch and pushed the initial `main` branch commit.
 
 Epic-002
 - Status: not started
