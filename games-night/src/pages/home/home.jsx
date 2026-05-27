@@ -14,14 +14,23 @@ function HomePage({ content }) {
     setActiveDialog(null);
   };
 
+  const createDialogFooter = (closeLabel) => (
+    <div className="home-page__dialog-footer">
+      <Button
+        className="home-page__dialog-close"
+        label={closeLabel}
+        onClick={closeDialog}
+        type="button"
+      />
+    </div>
+  );
+
   return (
     <section className="home-page">
       <div aria-hidden="true" className="home-page__texture" />
 
       <div className="home-page__panel">
-        <p className="home-page__kicker">{content.kicker}</p>
         <h1 className="home-page__title">{content.title}</h1>
-        <p className="home-page__description">{content.description}</p>
 
         <div className="home-page__actions">
           <Button
@@ -49,6 +58,7 @@ function HomePage({ content }) {
         className="home-page__dialog"
         dismissableMask
         draggable={false}
+        footer={createDialogFooter(content.closeButton)}
         header={content.qrDialogTitle}
         onHide={closeDialog}
         visible={activeDialog === 'qr'}
@@ -63,6 +73,7 @@ function HomePage({ content }) {
         className="home-page__dialog"
         dismissableMask
         draggable={false}
+        footer={createDialogFooter(content.closeButton)}
         header={content.matrixDialogTitle}
         onHide={closeDialog}
         visible={activeDialog === 'matrix'}

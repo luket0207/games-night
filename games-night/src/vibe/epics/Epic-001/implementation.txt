@@ -1,6 +1,281 @@
 Epic: Epic-001
 
 Implementation log
+- Feature name: Epic-001 Japanese Total Rickall colour example removal bug fix pass
+- What was implemented:
+  - Removed the extra example sentence from the Japanese `\u8272\u306b\u3064\u3044\u3066` section on the Total Rickall page.
+  - Added an automated assertion to confirm the removed Japanese line no longer exists in the content data or rendered page.
+- Exact scope completed:
+  - Bug-015 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing Total Rickall content data file.
+  - Reviewed the current Total Rickall route tests in `src/App.test.jsx`.
+- What was reused:
+  - Reused the existing Total Rickall page structure, bilingual content model, and route-level test setup.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new UI structure was needed; the fix only required removing one existing Japanese content line and updating the matching test coverage.
+- Files changed:
+  - `src/pages/totalRickall/totalRickallContent.js`
+  - `src/App.test.jsx`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - No homepage content, routes, layout, or styling changed in this pass.
+  - The English Total Rickall content was left unchanged.
+- Assumptions made:
+  - The request to remove the line applied only to the Japanese Total Rickall page and did not require any replacement sentence.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 Japanese Total Rickall labels translation bug fix pass
+- What was implemented:
+  - Translated the remaining English example sentence in the Japanese Total Rickall colour guidance.
+  - Replaced the Japanese page card translation labels with Japanese labels.
+  - Removed the English prefixes from the Japanese coloured and non-coloured section titles and kept those titles in Japanese only.
+  - Added automated assertions covering the updated Japanese labels, section titles, and translated example sentence.
+- Exact scope completed:
+  - Bug-013 and Bug-014 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing Total Rickall content data file.
+  - Reviewed the existing Total Rickall page renderer to confirm the labels and titles already came from the content object.
+  - Reviewed the current Total Rickall route tests in `src/App.test.jsx`.
+- What was reused:
+  - Reused the existing Total Rickall page structure, bilingual content model, and route-level test setup.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new UI structure was needed; the fix only required targeted content updates in the existing Japanese Total Rickall data plus matching test coverage.
+- Files changed:
+  - `src/pages/totalRickall/totalRickallContent.js`
+  - `src/App.test.jsx`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - No homepage content, routes, layout, or styling changed in this pass.
+  - The English Total Rickall labels and section titles were left unchanged.
+- Assumptions made:
+  - The request to translate the Japanese page titles applied to the remaining English-facing labels and mixed-language section titles within the Japanese Total Rickall content.
+  - Removing the English coloured/non-coloured title prefixes did not require any component or styling changes because the renderer already reads those titles from content.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 Total Rickall copy correction bug fix pass
+- What was implemented:
+  - Corrected the English Total Rickall shooting instruction to include the follow-up rule that a new character is dealt onto the board after a real character is shot.
+  - Updated the matching Japanese shooting guidance to include the same rule clarification.
+  - Replaced the Japanese-only `<colour>` placeholders on the Total Rickall page with `<色>`.
+  - Added automated assertions covering the corrected English and Japanese Total Rickall copy.
+- Exact scope completed:
+  - Bug-011 and Bug-012 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing Total Rickall content data file.
+  - Reviewed the current Total Rickall route tests in `src/App.test.jsx`.
+- What was reused:
+  - Reused the existing Total Rickall page structure, bilingual content model, and route-level test setup.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new structures were needed; the fix only required targeted copy updates in the existing Total Rickall content data plus matching test coverage.
+- Files changed:
+  - `src/pages/totalRickall/totalRickallContent.js`
+  - `src/App.test.jsx`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - No homepage content, routes, layout, or styling changed in this pass.
+  - English `<colour>` placeholders were left unchanged because the requested localization change applied to the Japanese Total Rickall content only.
+- Assumptions made:
+  - The requested English replacement sentence should be used verbatim, including the provided spelling of `charater`.
+  - “In both languages” for Bug-011 meant the English and Japanese instruction text should both reflect the same gameplay clarification.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 mixed-language font bug fix pass
+- What was implemented:
+  - Fixed the Japanese-mode font handling so Roman-letter text keeps the English display/body fonts while Japanese characters still fall back to the Japanese font.
+  - Applied the fix to the homepage mixed-language text and the Total Rickall mixed-language text.
+- Exact scope completed:
+  - Bug-009 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing homepage page-level SCSS.
+  - Reviewed the existing Total Rickall page-level SCSS.
+  - Reviewed the current bilingual content to confirm the mixed-language labels already existed and did not need copy changes.
+- What was reused:
+  - Reused the existing font variables in `src/index.scss`.
+  - Reused the existing page-level SCSS structure and current bilingual content strings.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new structures were needed; the fix only required adjusting the existing Japanese-mode font-family stacks so they use English-first fonts with Japanese fallback.
+- Files changed:
+  - `src/pages/home/home.scss`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - No page copy, routing, content structure, or language-toggle behavior changed in this pass.
+  - No new shared typography utilities or components were introduced.
+- Assumptions made:
+  - Using mixed font stacks on the existing affected elements was sufficient to satisfy the bug without needing per-word markup changes.
+- Tradeoffs or follow-up tasks:
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+
+- Feature name: Epic-001 Total Rickall instructions and translations page
+- What was implemented:
+  - Replaced the Total Rickall placeholder with a structured mobile-first instructions and translation reference page.
+  - Added English how-to-play sections only for the English view.
+  - Added Japanese rules, colour guidance, coloured card translations, and non-coloured card translations for the Japanese view.
+  - Moved the Total Rickall page copy into a dedicated data file and corrected the shared Japanese strings used by the existing language system.
+  - Added automated coverage for the English and Japanese Total Rickall content.
+- Exact scope completed:
+  - Feature-006 from `src/vibe/epics/Epic-001/features.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing Total Rickall route component and page-level SCSS.
+  - Reviewed the existing app shell routing and app-level bilingual content object.
+  - Reviewed the current test file and existing language toggle flow.
+- What was reused:
+  - Reused the existing `/total-rickall` route, shared app shell, language switch behavior, page-level SCSS pattern, and app-level content structure.
+- What was newly created:
+  - `src/pages/totalRickall/totalRickallContent.js`
+- Why new code was needed where reuse was not possible:
+  - The existing Total Rickall page only contained placeholder copy, so a dedicated content data file and richer page structure were needed to present the requested instructions and card translations cleanly.
+- Files changed:
+  - `src/pages/totalRickall/totalRickall.jsx`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/pages/totalRickall/totalRickallContent.js`
+  - `src/app/appContent.js`
+  - `src/App.test.jsx`
+  - `src/vibe/epics/Epic-001/features.txt`
+- What was intentionally not changed:
+  - The homepage layout, homepage actions, and homepage modal flows were left unchanged beyond the shared language content source.
+  - No gameplay logic, extra routes, or interactive Total Rickall tools were added.
+  - No new persistence was added beyond the existing route-to-route language state.
+- Assumptions made:
+  - A card-style layout was the safest mobile-first format for the translations instead of a narrow table layout.
+  - Storing the Japanese strings with Unicode escape sequences was acceptable because the Windows environment was corrupting direct source-text encoding.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` could not be executed because the project does not currently define a lint script.
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+  - Manual browser verification on mobile-sized screens remains a useful follow-up.
+
+- Feature name: Epic-001 modal surface opacity bug fix pass
+- What was implemented:
+  - Removed opacity from the homepage modal surfaces so the dialog container, header, content, footer, and close icon surfaces all use solid colors.
+  - Left the overlay behavior unchanged so only the background behind the modal may remain translucent.
+- Exact scope completed:
+  - Bug-008 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing homepage dialog SCSS and current themed modal styling.
+- What was reused:
+  - Reused the existing modal structure, dialog theming approach, and close button setup.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new structures were needed; the fix only required replacing translucent modal surface colors with solid values.
+- Files changed:
+  - `src/pages/home/home.scss`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - The overlay behind the modal was left unchanged, as requested.
+  - No dialog content, routing, or button behavior changed in this pass.
+- Assumptions made:
+  - The request applied to modal-facing surfaces only, not their drop shadow or the page overlay.
+- Tradeoffs or follow-up tasks:
+  - PrimeReact JSDOM stylesheet parsing warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 viewport height bug fix pass
+- What was implemented:
+  - Fixed the page height behavior so short pages fill the viewport without exceeding it from stacked viewport-based minimum heights.
+  - Kept the viewport-height responsibility on the outer app shell and changed inner layout/page sections to inherit that height instead of each using their own `100vh` minimum.
+- Exact scope completed:
+  - Bug-007 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the app shell container and the existing homepage and Total Rickall page SCSS.
+- What was reused:
+  - Reused the existing shell structure and page layouts.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new structures were needed; the fix only required adjusting the existing height rules across the shell and page styles.
+- Files changed:
+  - `src/App.scss`
+  - `src/app/appShell.scss`
+  - `src/pages/home/home.scss`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - No routes, controls, modal behavior, or page copy were changed in this pass.
+- Assumptions made:
+  - The bug referred to the stacked nested `min-height: 100vh` behavior in the shell and page sections.
+- Tradeoffs or follow-up tasks:
+  - PrimeReact JSDOM stylesheet parsing warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 sticky controls and modal theme bug fixes pass
+- What was implemented:
+  - Made the shared top controls sticky so they stay visible at the top of the app shell.
+  - Updated page spacing so homepage and Total Rickall content sit correctly below the sticky controls.
+  - Restyled the homepage dialogs to better match the homepage theme.
+  - Added a clearer themed close button to both homepage dialogs.
+  - Updated the bilingual content file to include the close button label and corrected the stored Japanese strings.
+- Exact scope completed:
+  - Bug-004 and Bug-005 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing app shell layout and homepage dialog usage.
+  - Reviewed current page-level SCSS for homepage and Total Rickall spacing.
+  - Reviewed the app-level bilingual content object for dialog copy.
+- What was reused:
+  - Reused the existing shell controls, dialog components, homepage actions, and language structure.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new structures were needed; the fixes required adjusting the existing shell layout, page spacing, dialog markup, dialog styles, and content strings.
+- Files changed:
+  - `src/app/AppShell.jsx`
+  - `src/app/appShell.scss`
+  - `src/app/appContent.js`
+  - `src/pages/home/home.jsx`
+  - `src/pages/home/home.scss`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - No homepage game actions, routes, or dialog content flows were changed beyond the requested visual and close-control fixes.
+- Assumptions made:
+  - A themed footer close button plus improved dialog header icon styling satisfied the request for a clearer close button.
+- Tradeoffs or follow-up tasks:
+  - PrimeReact JSDOM stylesheet parsing warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 homepage bug fixes pass
+- What was implemented:
+  - Moved the homepage panel from bottom-aligned to top-aligned while keeping spacing below the shared controls.
+  - Removed the unrequested homepage kicker and description elements.
+  - Centered the homepage title.
+  - Removed the now-unused homepage kicker and description entries from the bilingual content file.
+- Exact scope completed:
+  - Bug-001 through Bug-003 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing homepage component and page SCSS.
+  - Reviewed the app-level bilingual content object for now-unused homepage keys.
+- What was reused:
+  - Reused the existing homepage layout, title, button actions, dialogs, and language structure.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new structures were needed; the fix only required adjusting the existing homepage markup, content, and styles.
+- Files changed:
+  - `src/pages/home/home.jsx`
+  - `src/pages/home/home.scss`
+  - `src/app/appContent.js`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - `Bug-004` was not implemented because it does not include a status and the prompt asked for bugs with status `not started`.
+  - The shared controls remain non-sticky in this pass for the same reason.
+- Assumptions made:
+  - Only bugs explicitly marked `Not Started` were in scope.
+- Tradeoffs or follow-up tasks:
+  - PrimeReact JSDOM stylesheet parsing warnings still appear during tests, but the suite passes.
+
 - Feature name: Epic-001 feature implementation pass
 - What was implemented:
   - Replaced the Create React App boilerplate with a routed mobile-width app shell.

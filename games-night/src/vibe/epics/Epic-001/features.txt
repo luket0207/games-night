@@ -207,3 +207,290 @@ Stop point
 Testing checkpoints
 - `npm run build`
 - `npm test -- --runInBand` with `CI=true`
+
+
+Feature-006: Total Rickall instructions and card translations page
+Status: done
+
+Purpose
+- Build the Total Rickall page as an instructions and translation reference page.
+- The main goal of this page is to help Japanese players understand how to play and understand the card effects.
+
+Scope
+- This feature only affects the Total Rickall page.
+- Keep the existing homepage and homepage modals unchanged unless a shared language/context issue must be fixed.
+- Do not add new games or unrelated site features.
+
+Page requirements
+- Build the Total Rickall page at:
+
+/total-rickall
+
+- Use the existing Total Rickall page files:
+
+src/pages/totalRickall/totalRickall.jsx
+src/pages/totalRickall/totalRickall.scss
+
+- The page should follow the existing mobile-first app shell.
+- The page should be structured, readable, and easy to use during an actual game.
+- Use clear sections, headings, spacing, and card-style blocks or tables where helpful.
+- Avoid one long wall of text.
+
+Language requirements
+- The page should use the existing English/Japanese language switch system.
+- The English version of the Total Rickall page only needs instructions on how to play the game.
+- The Japanese version of the Total Rickall page needs:
+  - Instructions on how to play the game.
+  - The colour explanation.
+  - All coloured card translations.
+  - All non-coloured card translations.
+- The selected language should still persist when moving between pages.
+
+Japanese page content
+
+Main title
+- English title:
+
+Total Rickall Card Translations
+
+- Japanese title:
+
+トータル・リックオール：カード翻訳
+
+Colour explanation section
+- Section heading:
+
+色について / About Colours
+
+- Content:
+  - `<colour>` = そのカードに書かれている色
+  - For example: if the card is red, use it only on a red character.
+  - 色付きカードは、同じ色のキャラクターにしか使えません。
+  - 色なしカードは、キャラクターの色に関係なく使えます。
+
+Coloured cards section
+- Section heading:
+
+Coloured Cards
+色付きカード
+
+- Display the following information in a structured format.
+- Each card should show:
+  - English Card
+  - Japanese Card Name
+  - Japanese Effect Text
+
+Cards:
+
+1. Morty
+- Japanese Card Name:
+
+モーティ
+
+- Japanese Effect Text:
+
+<色>のキャラクター1人の正体カードをこっそり見る。
+
+2. Beth
+- Japanese Card Name:
+
+ベス
+
+- Japanese Effect Text:
+
+<色>のキャラクター1人を撃つ。
+
+3. Jerry
+- Japanese Card Name:
+
+ジェリー
+
+- Japanese Effect Text:
+
+場に出ている<色>のキャラクター全員の正体カードをシャッフルし、もう一度配り直す。その後、プレイヤー1人を選ぶ。そのプレイヤーはカードを1枚引く。
+
+4. Summer
+- Japanese Card Name:
+
+サマー
+
+- Japanese Effect Text:
+
+<色>のキャラクター2人の正体カードをこっそり見る。その後、その2枚の正体カードをシャッフルし、もう一度配り直す。
+
+5. I've Known You For 15 Years
+- Japanese Card Name:
+
+15年間も知ってるんだぞ
+
+- Japanese Effect Text:
+
+<色>のキャラクター1人の正体カードを公開し、ゲーム終了まで表向きのままにする。他のカードの効果でシャッフルされる時も、そのカードはシャッフルしない。
+
+Non-coloured cards section
+- Section heading:
+
+Non-Coloured Cards
+色なしカード
+
+- Display the following information in a structured format.
+- Each card should show:
+  - English Card
+  - Japanese Card Name
+  - Japanese Effect Text
+
+Cards:
+
+1. Rick
+- Japanese Card Name:
+
+リック
+
+- Japanese Effect Text:
+
+正体カードの山札の一番上のカードをこっそり見る。
+
+2. You Can't Kill Me
+- Japanese Card Name:
+
+お前に俺は殺せない
+
+- Japanese Effect Text:
+
+他のプレイヤーを1人選ぶ。そのプレイヤーはキャラクター1人を撃たなければならない。
+
+3. Mr. Poopybutthole
+- Japanese Card Name:
+
+ミスター・プーピーバットホール
+
+- Japanese Effect Text:
+
+このラウンド中に誰も撃たれなかった場合、ラウンド終了時に各プレイヤーはカードを1枚引く。
+
+4. Is Something Wrong, Beth?
+- Japanese Card Name:
+
+どうかしたの、ベス？
+
+- Japanese Effect Text:
+
+このカードが手札にある場合、次に必ずこのカードを出さなければならない。キャラクター1人を撃つ。
+
+5. I Tried to Shoot Summer 10 Minutes Ago
+- Japanese Card Name:
+
+10分前にサマーを撃とうとした
+
+- Japanese Effect Text:
+
+キャラクター1人を撃つ。そのキャラクターが本物だった場合、その正体カードを失敗置き場に置く。ただし、手札からランダムにカードを捨てず、新しいキャラクターも場に追加しない。
+
+6. Bitch of a Sister
+- Japanese Card Name:
+
+クソ姉貴
+
+- Japanese Effect Text:
+
+場に出ている色を1つ選ぶ。その色のキャラクター2人を撃つ。
+
+7. Me Too
+- Japanese Card Name:
+
+俺も
+
+- Japanese Effect Text:
+
+自分の右隣のプレイヤーが出したカードの効果をコピーする。
+
+Japanese rules section
+- Section heading:
+
+簡単なルール説明
+
+- Content:
+  - このゲームでは、プレイヤー全員で協力して、場に出ているキャラクターの中から「寄生生物」を見つけて倒します。
+  - 各キャラクターの下には、裏向きの正体カードがあります。
+  - 正体カードには、そのキャラクターが本物なのか、寄生生物なのかが書かれています。
+  - 毎ラウンド、各プレイヤーは手札からアクションカードを1枚選び、裏向きで出します。
+  - 全員が出したら、同時に表にして、スタートプレイヤーから時計回りにカードの効果を使います。
+
+Card effects summary
+- Display the following as clear sub-sections:
+
+1. 正体を見る
+- キャラクターの正体カードをこっそり確認できます。
+
+2. キャラクターを撃つ
+- キャラクターを撃ち、その正体を確認します。
+- 撃ったキャラクターが寄生生物なら成功です。
+- 撃ったキャラクターが本物だった場合、その本物カードは失敗置き場に置かれます。
+- 本物を4人撃ってしまうと、ゲームに負けます。
+
+Round end explanation
+- ラウンドが終わったら、出したアクションカードを捨て、スタートプレイヤーを左に移します。
+- その後、新しいキャラクター1人と正体カード1枚を場に追加して、次のラウンドを始めます。
+
+Ending the game explanation
+- 場にいる寄生生物が全員いなくなったと思ったら、誰でもゲーム終了を宣言できます。
+- 半分以上のプレイヤーが同意したら、場の正体カードをすべて公開します。
+- 寄生生物が1人も残っていなければ、プレイヤー全員の勝ちです。
+
+English page content
+- The English version only needs the instructions on how to play.
+- It does not need the full card translation list.
+- Write the English instructions clearly and simply.
+- The English instructions should explain:
+  - The players are working together.
+  - Characters have hidden identity cards.
+  - Identity cards show whether the character is real or a parasite.
+  - Each round, players choose one action card face down.
+  - Cards are revealed together.
+  - Effects resolve from the start player clockwise.
+  - Some cards let players secretly check identities.
+  - Some cards let players shoot characters.
+  - Shooting a parasite is good.
+  - Shooting a real character puts that real card into the fail area.
+  - If 4 real characters are shot, the players lose.
+  - At the end of the round, played action cards are discarded.
+  - The start player moves left.
+  - A new character and identity card are added to the board.
+  - Any player can declare the end of the game when they think no parasites remain.
+  - If more than half the players agree, reveal all identity cards.
+  - If no parasites remain, all players win.
+
+Design requirements
+- Keep the Total Rickall page mobile-friendly.
+- Make it easy to scan during gameplay.
+- Use sections/cards rather than a dense paragraph layout.
+- Use readable font sizes.
+- Make the card translation entries visually distinct.
+- Keep the style consistent with the existing board game night theme, but the page should prioritize readability over decoration.
+- Avoid horizontal scrolling on mobile.
+- If using tables, make sure they work well on a narrow mobile screen. Card-style layouts may be better.
+
+Notes
+- Do not change the meaning of the provided Japanese translations.
+- Small formatting improvements are allowed.
+- Do not add extra cards.
+- Do not invent extra rules.
+- Do not add gameplay logic or interactive game tools yet.
+- Completed with a structured bilingual Total Rickall reference page, mobile-friendly translation cards, and corrected Japanese content storage for the shared language system.
+
+Testing checkpoints
+- Confirm `/total-rickall` displays the Total Rickall page.
+- Confirm the English version only shows the how-to-play instructions.
+- Confirm the Japanese version shows:
+  - The rules explanation.
+  - The colour explanation.
+  - All coloured card translations.
+  - All non-coloured card translations.
+- Confirm every listed card appears exactly once.
+- Confirm each card shows its English name, Japanese name, and Japanese effect text.
+- Confirm the language switch changes the Total Rickall page content correctly.
+- Confirm the selected language is remembered when navigating away from and back to the page.
+- Confirm the page is readable on mobile dimensions.
+- Confirm there is no horizontal scrolling.
+- Confirm the home icon still returns the user to `/`.
+- Confirm no unrelated homepage content was changed.

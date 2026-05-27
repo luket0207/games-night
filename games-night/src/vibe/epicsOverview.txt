@@ -2,10 +2,20 @@ Epic-001
 - Status: in progress
 - Epic folder: `src/vibe/epics/Epic-001/`
 - Latest notes:
+  - Removed the extra example sentence from the Japanese Total Rickall colour guidance.
+  - Translated the remaining English example sentence and card labels on the Japanese Total Rickall page, and removed the English prefixes from the affected Japanese section titles.
+  - Corrected the Total Rickall shooting instruction in both languages so it now explains dealing a new character onto the board after shooting a real character.
+  - Replaced Japanese Total Rickall `<colour>` placeholders with `<色>` in the affected entries.
   - Replaced the CRA boilerplate with a routed mobile-width app shell and page-level SCSS.
   - Added bilingual homepage/Total Rickall routing with shared home and language icons.
   - Added QR modals, Matrix Game linking, and GitHub Pages deploy configuration.
   - Published the `gh-pages` branch and pushed the initial `main` branch commit.
+  - Fixed the homepage panel alignment, removed unrequested homepage copy, and centered the homepage title.
+  - Made the shared top controls sticky and updated the homepage modals to better match the homepage theme.
+  - Fixed the shell/page height rules so short pages no longer exceed the viewport height.
+  - Removed opacity from the homepage modal surfaces while leaving the background overlay behavior unchanged.
+  - Built the Total Rickall instructions and translation reference page and stabilized the Japanese content strings for the bilingual flow.
+  - Fixed Japanese-mode mixed-language font stacks so Roman text keeps the English fonts on the homepage and Total Rickall page.
 
 Epic-002
 - Status: not started

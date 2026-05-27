@@ -1,3 +1,5 @@
+import { totalRickallContent } from '../pages/totalRickall/totalRickallContent';
+
 export const externalLinks = {
   gamesNight: 'https://luket0207.github.io/games-night/',
   matrixGame: 'https://luket0207.github.io/matrix-game/',
@@ -11,9 +13,6 @@ export const appContent = {
     },
     home: {
       title: 'Games Night!',
-      kicker: 'Board game energy, packed into your pocket.',
-      description:
-        'Pick a portal, share the link fast, and get everyone into the right game room without breaking the cosy table-night mood.',
       qrButton: 'QR Code',
       totalRickallButton: 'Total Rickall',
       matrixGameButton: 'Matrix Game',
@@ -23,39 +22,29 @@ export const appContent = {
       matrixDialogDescription:
         'Scan the code or tap the link below to jump into Matrix Game.',
       matrixLinkLabel: 'Open Matrix Game',
+      closeButton: 'Close',
     },
-    totalRickall: {
-      badge: 'Placeholder route',
-      title: 'Total Rickall',
-      description:
-        'This page is intentionally lightweight for now. The route, bilingual shell, and page-level styling are ready for the next feature pass.',
-    },
+    totalRickall: totalRickallContent.en,
   },
   ja: {
     common: {
-      homeAriaLabel: 'ホームページに戻る',
-      languageAriaLabel: '言語を英語に切り替える',
+      homeAriaLabel: '\u30db\u30fc\u30e0\u30da\u30fc\u30b8\u306b\u623b\u308b',
+      languageAriaLabel: '\u8a00\u8a9e\u3092\u82f1\u8a9e\u306b\u5207\u308a\u66ff\u3048\u308b',
     },
     home: {
       title: 'Games Night!',
-      kicker: 'ボードゲームのワクワクを、そのままスマホへ。',
-      description:
-        'リンクをすぐ共有して、みんなを正しいゲームページへ案内しながら、楽しいゲームナイトの雰囲気をそのまま保てます。',
-      qrButton: 'QRコード',
-      totalRickallButton: 'トータル・リコール',
-      matrixGameButton: 'マトリックスゲーム',
-      qrDialogTitle: 'Games Night QRコード',
-      qrDialogDescription: 'このコードを読み取って Games Night を開いてください。',
-      matrixDialogTitle: 'マトリックスゲーム',
+      qrButton: 'QR\u30b3\u30fc\u30c9',
+      totalRickallButton: '\u30c8\u30fc\u30bf\u30eb\u30fb\u30ea\u30c3\u30af\u30aa\u30fc\u30eb',
+      matrixGameButton: '\u30de\u30c8\u30ea\u30c3\u30af\u30b9\u30b2\u30fc\u30e0',
+      qrDialogTitle: 'Games Night QR\u30b3\u30fc\u30c9',
+      qrDialogDescription:
+        '\u3053\u306e\u30b3\u30fc\u30c9\u3092\u8aad\u307f\u53d6\u3063\u3066 Games Night \u3092\u958b\u3044\u3066\u304f\u3060\u3055\u3044\u3002',
+      matrixDialogTitle: '\u30de\u30c8\u30ea\u30c3\u30af\u30b9\u30b2\u30fc\u30e0',
       matrixDialogDescription:
-        'QRコードを読み取るか、下のリンクをタップしてマトリックスゲームを開いてください。',
-      matrixLinkLabel: 'マトリックスゲームを開く',
+        'QR\u30b3\u30fc\u30c9\u3092\u8aad\u307f\u53d6\u308b\u304b\u3001\u4e0b\u306e\u30ea\u30f3\u30af\u3092\u30bf\u30c3\u30d7\u3057\u3066\u30de\u30c8\u30ea\u30c3\u30af\u30b9\u30b2\u30fc\u30e0\u3092\u958b\u3044\u3066\u304f\u3060\u3055\u3044\u3002',
+      matrixLinkLabel: '\u30de\u30c8\u30ea\u30c3\u30af\u30b9\u30b2\u30fc\u30e0\u3092\u958b\u304f',
+      closeButton: '\u9589\u3058\u308b',
     },
-    totalRickall: {
-      badge: 'プレースホルダー',
-      title: 'トータル・リコール',
-      description:
-        'このページは今の段階では最小構成です。ルート、言語切り替え、ページ単位のスタイルだけを先に用意しています。',
-    },
+    totalRickall: totalRickallContent.ja,
   },
 };

@@ -1,24 +1,371 @@
 Bug-001
 
-Status: Not Started
+Status: fixed
 
-The element home-page__panel on the homepage should be achored to the top of the page not the bottom. We still want some padding between the top of this element and the app-shell-layout__controls though.
+Repro steps:
+- Open the homepage.
+- Observe the position of `home-page__panel`.
+
+Expected behavior:
+- The homepage panel should sit near the top of the page with spacing below the shared top controls.
+
+Actual behavior:
+- The homepage panel was aligned to the bottom of the page.
+
+Suspected cause:
+- The homepage container used `align-items: flex-end`.
+
+Attempted fixes:
+- Updated the homepage layout to align content at the top while preserving top padding.
+
+Final fix if solved:
+- Changed `src/pages/home/home.scss` so `.home-page` uses `align-items: flex-start`.
+
+Status:
+- fixed
 
 
 Bug-002
 
-Status: Not Started
+Status: fixed
 
-The elements home-page__description and home-page__kicker were not asked for. Can you please remove them and refrain from adding elements that have not been asked for in the future.
+Repro steps:
+- Open the homepage.
+- Review the elements rendered above the game buttons.
+
+Expected behavior:
+- Only the requested homepage title and game actions should be rendered.
+
+Actual behavior:
+- Extra `home-page__description` and `home-page__kicker` elements were shown.
+
+Suspected cause:
+- Additional homepage copy was added beyond the requested scope.
+
+Attempted fixes:
+- Removed the extra JSX elements and their related homepage styles.
+
+Final fix if solved:
+- Deleted the `home-page__kicker` and `home-page__description` elements from `src/pages/home/home.jsx` and removed their SCSS rules.
+
+Status:
+- fixed
 
 
 Bug-003
 
-Status: Not Started
+Status: fixed
 
-The title in home-page__title should be centered. 
+Repro steps:
+- Open the homepage.
+- Look at the `home-page__title` heading alignment.
+
+Expected behavior:
+- The homepage title should be centered.
+
+Actual behavior:
+- The title was not centered.
+
+Suspected cause:
+- The title styles did not explicitly center the heading text.
+
+Attempted fixes:
+- Added centered text alignment to the title style.
+
+Final fix if solved:
+- Updated `src/pages/home/home.scss` so `.home-page__title` uses `text-align: center`.
+
+Status:
+- fixed
 
 
 Bug-004
 
-The element app-shell-layout__controls should be sticky and always visible at the top of the page. 
+Status: fixed
+
+Repro steps:
+- Open the homepage or Total Rickall page.
+- Scroll the page and observe the top controls.
+
+Expected behavior:
+- `app-shell-layout__controls` should stay visible at the top of the app shell while scrolling.
+
+Actual behavior:
+- The controls were absolutely positioned and could scroll out of view.
+
+Suspected cause:
+- The controls used `position: absolute` instead of sticky positioning inside the app shell layout.
+
+Attempted fixes:
+- Converted the controls row into a sticky top section in the shell layout.
+- Adjusted page spacing so page content still sits below the controls.
+
+Final fix if solved:
+- Updated `src/app/appShell.scss`, `src/app/AppShell.jsx`, `src/pages/home/home.scss`, and `src/pages/totalRickall/totalRickall.scss` so the controls are sticky and the page content renders beneath them.
+
+Status:
+- fixed
+
+
+Bug-005
+
+Status: fixed
+
+Repro steps:
+- Open the QR Code modal or Matrix Game modal from the homepage.
+
+Expected behavior:
+- The modals should match the homepage theme, use the homepage fonts, and include a more obvious close action.
+
+Actual behavior:
+- The modals used a lighter default PrimeReact look and only had the default icon close button.
+
+Suspected cause:
+- The dialog styling was minimal and there was no explicit close button in the dialog footer.
+
+Attempted fixes:
+- Restyled the dialogs to match the homepage palette and typography.
+- Added a themed footer close button with bilingual text.
+- Updated the dialog close icon styling for better visibility.
+
+Final fix if solved:
+- Updated `src/pages/home/home.jsx`, `src/pages/home/home.scss`, and `src/app/appContent.js` to give the modals homepage-themed styling, homepage fonts, and a clear close button.
+
+Status:
+- fixed
+
+
+Bug-007
+
+Status: fixed
+
+Repro steps:
+- Open the homepage or Total Rickall page with content that is shorter than the viewport.
+- Observe the total page height.
+
+Expected behavior:
+- The page should fill the viewport height at most when content is short, and only grow taller when content needs more space.
+
+Actual behavior:
+- Nested sections were each using viewport-sized minimum heights, which could make the overall page taller than the viewport even when content was short.
+
+Suspected cause:
+- Multiple nested layout layers were all using `min-height: 100vh`.
+
+Attempted fixes:
+- Kept the viewport-height behavior on the outer app shell.
+- Changed inner layout and page sections to inherit the shell height instead of each using their own viewport-based minimum height.
+
+Final fix if solved:
+- Updated `src/App.scss`, `src/app/appShell.scss`, `src/pages/home/home.scss`, and `src/pages/totalRickall/totalRickall.scss` so only the outer shell owns the viewport height and inner sections use `min-height: 100%`.
+
+Status:
+- fixed
+
+
+Bug-008
+
+Status: fixed
+
+Repro steps:
+- Open either homepage modal.
+- Inspect the modal body, header, footer, and close icon surfaces.
+
+Expected behavior:
+- The overlay behind the modal may be translucent, but the modal surfaces themselves should use fully solid backgrounds with no opacity.
+
+Actual behavior:
+- The modal surfaces and close icon styling used partially transparent color values.
+
+Suspected cause:
+- The dialog theme used `rgba(...)` values for modal-facing surfaces.
+
+Attempted fixes:
+- Replaced translucent dialog border and surface colors with fully solid values.
+- Replaced the close icon surface styling with a solid background and border.
+
+Final fix if solved:
+- Updated `src/pages/home/home.scss` so the modal container, header, content, footer, and close icon surfaces use solid colors while leaving the overlay behavior unchanged.
+
+Status:
+- fixed
+
+
+Bug-009
+
+Status: fixed
+
+Repro steps:
+- Switch the site to Japanese.
+- Open the homepage and the Total Rickall page.
+- Look at Roman-letter text such as `Games Night!`, `Games Night QR`, `About Colours`, `Coloured Cards`, and `Non-Coloured Cards`.
+
+Expected behavior:
+- Roman-letter text in the Japanese version should keep the same English font styling as the English version.
+- Japanese characters in the same labels should still render with the Japanese font.
+
+Actual behavior:
+- Japanese-mode selectors were replacing whole elements with the Japanese font stack, so Roman-letter text lost the intended English display/body fonts.
+
+Suspected cause:
+- The Japanese language CSS overrides used `font-family: var(--font-body-ja)` on mixed-language elements instead of using a fallback stack.
+
+Attempted fixes:
+- Changed the homepage title in Japanese mode to use the display font with the Japanese body font as fallback.
+- Changed mixed-language homepage button/dialog text and Total Rickall content to use the English body font first with the Japanese body font as fallback.
+- Updated the homepage dialog header stack so Roman text keeps the display font while Japanese glyphs still render correctly.
+
+Final fix if solved:
+- Updated `src/pages/home/home.scss` and `src/pages/totalRickall/totalRickall.scss` so Japanese-mode mixed-language text uses combined English/Japanese font stacks instead of forcing the full element to the Japanese font.
+
+Status:
+- fixed
+
+
+Bug-011
+
+Status: fixed
+
+Repro steps:
+- Open `/total-rickall` in English.
+- Read the `Checking Identities and Shooting` section.
+- Switch to Japanese and read the matching shooting guidance.
+
+Expected behavior:
+- Both languages should explain that shooting a real character sends that card to the fail area and then a new character is dealt onto the board.
+
+Actual behavior:
+- The instruction stopped after sending the real character card to the fail area and omitted the follow-up step about dealing a replacement character.
+
+Suspected cause:
+- The Total Rickall content data did not include the full rule clarification in either language.
+
+Attempted fixes:
+- Updated the English shooting instruction string with the requested follow-up sentence.
+- Updated the matching Japanese shooting summary text to include the same gameplay clarification.
+
+Final fix if solved:
+- Updated `src/pages/totalRickall/totalRickallContent.js` so both language versions explain that after shooting a real character into the fail area, a new character is dealt onto the board.
+
+Status:
+- fixed
+
+
+Bug-012
+
+Status: fixed
+
+Repro steps:
+- Open `/total-rickall`.
+- Switch to Japanese.
+- Review the colour explanation and coloured card effect text.
+
+Expected behavior:
+- The Japanese Total Rickall page should use `<色>` anywhere the colour placeholder appears.
+
+Actual behavior:
+- Several Japanese content entries still used the English placeholder `<colour>`.
+
+Suspected cause:
+- The Japanese Total Rickall content strings were copied from the English placeholder format and were not localized fully.
+
+Attempted fixes:
+- Replaced the placeholder token in the Japanese colour explanation entry.
+- Replaced the same token anywhere it appeared in the Japanese coloured-card effect text.
+
+Final fix if solved:
+- Updated `src/pages/totalRickall/totalRickallContent.js` so the Japanese Total Rickall content uses `<色>` instead of `<colour>` throughout the affected entries.
+
+Status:
+- fixed
+
+
+Bug-013
+
+Status: fixed
+
+Repro steps:
+- Open `/total-rickall`.
+- Switch to Japanese.
+- Read the colour-guidance section.
+
+Expected behavior:
+- The example sentence about using a red card only on a red character should be translated into Japanese on the Japanese page.
+
+Actual behavior:
+- That example sentence was still shown in English inside the Japanese Total Rickall content.
+
+Suspected cause:
+- One colour-guidance bullet in the Japanese content data was left as the original English sentence.
+
+Attempted fixes:
+- Replaced the English example sentence in the Japanese colour-guidance bullets with a Japanese translation.
+
+Final fix if solved:
+- Updated `src/pages/totalRickall/totalRickallContent.js` so the Japanese colour-guidance example sentence is translated into Japanese.
+
+Status:
+- fixed
+
+
+Bug-014 
+
+Status: fixed
+
+Repro steps:
+- Open `/total-rickall`.
+- Switch to Japanese.
+- Review the translation labels and the coloured/non-coloured section titles.
+
+Expected behavior:
+- The Japanese page should use Japanese labels for the card translation headings.
+- The coloured and non-coloured section titles should not include the English prefixes.
+
+Actual behavior:
+- The Japanese page still showed English card translation labels such as `English Card`, `Japanese Card Name`, and `Japanese Effect Text`.
+- The coloured and non-coloured section titles still included mixed English and Japanese text.
+
+Suspected cause:
+- The Japanese Total Rickall content reused the shared English card-label object and mixed-language section titles.
+
+Attempted fixes:
+- Added a Japanese-only card-label object for the Japanese page content.
+- Replaced the mixed-language section titles with Japanese-only titles for the affected sections.
+
+Final fix if solved:
+- Updated `src/pages/totalRickall/totalRickallContent.js` so the Japanese Total Rickall page uses Japanese translation labels and Japanese-only section titles, and no longer includes the English coloured/non-coloured title prefixes.
+
+Status:
+- fixed
+
+
+Bug-015
+
+Status: fixed
+
+Repro steps:
+- Open `/total-rickall`.
+- Switch to Japanese.
+- Read the `\u8272\u306b\u3064\u3044\u3066` section.
+
+Expected behavior:
+- The Japanese page should not include the example sentence about using a red card on a red character.
+
+Actual behavior:
+- The Japanese page still showed that extra example line in the colour-guidance bullets.
+
+Suspected cause:
+- The sentence remained in the Japanese content data from the previous translation pass.
+
+Attempted fixes:
+- Removed the example sentence from the Japanese colour-guidance bullet list.
+- Updated the automated test to confirm the sentence is no longer present.
+
+Final fix if solved:
+- Updated `src/pages/totalRickall/totalRickallContent.js` and `src/App.test.jsx` so the extra Japanese example sentence is removed and covered by tests.
+
+Status:
+- fixed
+
+
+たとえば、そのカードが赤なら、赤のキャラクターにだけ使います。

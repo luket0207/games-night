@@ -28,7 +28,9 @@ function AppShell({ language, labels, onToggleLanguage }) {
         </button>
       </div>
 
-      <Outlet />
+      <div className="app-shell-layout__page">
+        <Outlet />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,173 @@
 Epic: Epic-001
 
 Testing log
+- Feature name: Epic-001 Japanese Total Rickall colour example removal bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open `/total-rickall`.
+  3. Switch to Japanese.
+  4. Read the `\u8272\u306b\u3064\u3044\u3066` section.
+  5. Confirm the example sentence about using a red card on a red character is no longer shown.
+- Expected result:
+  - The Japanese Total Rickall page no longer displays the removed example line in the colour-guidance section.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A quick manual browser pass remains useful for confirming the removed copy in-context.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 Japanese Total Rickall labels translation bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open `/total-rickall`.
+  3. Switch to Japanese.
+  4. Confirm the colour-guidance example sentence is shown in Japanese instead of English.
+  5. Confirm the translation labels use Japanese wording for the English card name, Japanese card name, and Japanese effect text fields.
+  6. Confirm the coloured-card and non-coloured-card section titles are shown in Japanese only, without the English prefixes.
+- Expected result:
+  - The Japanese Total Rickall page contains no leftover English in the example sentence or translation labels, and the affected section titles are Japanese-only.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A quick manual browser pass remains useful for confirming the updated copy in-context.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 Total Rickall copy correction bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open `/total-rickall` in English.
+  3. Confirm the `Checking Identities and Shooting` section says that shooting a real character puts that card into the fail area and then deals a new character onto the board.
+  4. Switch to Japanese.
+  5. Confirm the matching shooting guidance also mentions adding a new character to the board after a real character is shot.
+  6. Confirm the Japanese colour explanation and coloured-card effect text use `<色>` and do not show `<colour>`.
+- Expected result:
+  - Both languages show the corrected shooting rule, and the Japanese Total Rickall page uses `<色>` anywhere the colour placeholder appears.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A quick manual browser pass remains useful for confirming the updated copy in-context.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 mixed-language font bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Switch the site to Japanese.
+  3. Open the homepage and confirm the `Games Night!` title still uses the English display font styling.
+  4. Confirm mixed-language homepage text such as `Games Night QR` keeps the English font for Roman characters while Japanese characters still render correctly.
+  5. Open `/total-rickall` in Japanese and confirm mixed-language headings such as `About Colours`, `Coloured Cards`, and `Non-Coloured Cards` keep the English font for Roman characters while Japanese characters still render correctly.
+- Expected result:
+  - Mixed-language labels in Japanese mode use the English font for Roman text and the Japanese font for Japanese glyphs without changing the page content or layout.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A manual browser check remains the best proof for this font-rendering bug.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 Total Rickall instructions and translations page
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open `/total-rickall`.
+  3. Confirm the English view shows only the how-to-play instruction sections and does not show the card translation lists.
+  4. Switch to Japanese and confirm the page shows the rules explanation, the colour explanation, the coloured card translations, and the non-coloured card translations.
+  5. Confirm each listed card appears once with its English card name, Japanese card name, and Japanese effect text.
+  6. Navigate back to `/` and then return to `/total-rickall`.
+  7. Confirm the selected language is still active and the home icon still returns to `/`.
+  8. Confirm the page remains readable in a narrow mobile-sized browser width without horizontal scrolling.
+- Expected result:
+  - The English page stays instruction-only, the Japanese page shows the full requested reference content, language switching still works across navigation, and the page remains readable on mobile without horizontal overflow.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A manual browser pass on mobile-sized screens is still recommended.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 modal surface opacity bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open the homepage at `/`.
+  3. Open the QR Code modal.
+  4. Confirm the modal container, header, content area, footer, and close icon surfaces are fully solid with no translucent fill.
+  5. Confirm the dimmed overlay behind the modal can still remain translucent.
+  6. Repeat the same check for the Matrix Game modal.
+- Expected result:
+  - The modal surfaces are fully solid, while only the background overlay behind the modal may remain translucent.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - None for this modal opacity bug fix.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 viewport height bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open the homepage at `/`.
+  3. Confirm the page fills the viewport without extending beyond it when the homepage content is short.
+  4. Navigate to `/total-rickall`.
+  5. Confirm the Total Rickall page also fits within the viewport when its content is shorter than the screen.
+  6. Confirm taller content would still be able to grow the page normally if added later.
+- Expected result:
+  - Short pages fill the viewport height without creating extra vertical overflow from nested viewport-sized sections.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - None for this viewport-height bug fix.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 sticky controls and modal theme bug fixes pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open the homepage at `/`.
+  3. Scroll and confirm the home and language controls remain visible at the top of the app shell.
+  4. Open the QR Code modal and confirm it uses the homepage fonts and darker board-game themed styling.
+  5. Confirm the modal has a clearly visible `Close` or `閉じる` button.
+  6. Open the Matrix Game modal and confirm the same themed styling and clear close action are present.
+  7. Navigate to `/total-rickall` and confirm the page content still sits correctly below the sticky controls.
+- Expected result:
+  - The shared top controls stay visible while scrolling, and both homepage modals match the homepage theme with homepage fonts and a clear close button.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - None for these shell and modal bug fixes.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 homepage bug fixes pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open the homepage at `/`.
+  3. Confirm the main homepage panel appears near the top of the page with space below the shared top controls.
+  4. Confirm the homepage title is centered.
+  5. Confirm there is no extra kicker or description text above the homepage buttons.
+- Expected result:
+  - The homepage panel is top-aligned, the title is centered, and only the requested title and game actions remain visible.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - None for these homepage bug fixes.
+- Test status:
+  - passed
+
 - Feature name: Epic-001 feature implementation pass
 - Manual test steps:
   1. Run `npm start`.
