@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/games-night/static/css/main.c4afe8ee.css",
-    "main.js": "/games-night/static/js/main.004a3826.js",
+    "main.css": "/games-night/static/css/main.3c5f725a.css",
+    "main.js": "/games-night/static/js/main.193e3c95.js",
     "static/media/InterVariable-Italic.woff2": "/games-night/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
     "static/media/InterVariable.woff2": "/games-night/static/media/InterVariable.a0e477f2f1f9d2376fde.woff2",
     "static/media/primeicons.svg": "/games-night/static/media/primeicons.6ed59f962963a4a73af2.svg",
@@ -10,11 +10,11 @@
     "static/media/primeicons.ttf": "/games-night/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
     "static/media/primeicons.woff2": "/games-night/static/media/primeicons.024b32cc7bf399b1a847.woff2",
     "index.html": "/games-night/index.html",
-    "main.c4afe8ee.css.map": "/games-night/static/css/main.c4afe8ee.css.map",
-    "main.004a3826.js.map": "/games-night/static/js/main.004a3826.js.map"
+    "main.3c5f725a.css.map": "/games-night/static/css/main.3c5f725a.css.map",
+    "main.193e3c95.js.map": "/games-night/static/js/main.193e3c95.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4afe8ee.css",
-    "static/js/main.004a3826.js"
+    "static/css/main.3c5f725a.css",
+    "static/js/main.193e3c95.js"
   ]
 }
