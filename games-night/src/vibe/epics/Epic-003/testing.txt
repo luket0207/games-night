@@ -1,0 +1,19 @@
+Epic: Epic-003
+
+Testing log
+- No testing entries yet.
+
+Status markers
+- `not started`
+- `in progress`
+- `passed`
+- `failed`
+- `blocked`
+
+Entry template
+- Feature name:
+- Manual test steps:
+- Expected result:
+- Automated tests completed:
+- Automated tests still needed:
+- Test status:

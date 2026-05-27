@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Chewy&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap');
+
+:root {
+  --font-display: 'Chewy', cursive;
+  --font-body-en: 'Baloo 2', 'Trebuchet MS', sans-serif;
+  --font-body-ja: 'M PLUS Rounded 1c', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body-en);
+  color: #fff4df;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}

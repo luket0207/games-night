@@ -1,0 +1,21 @@
+Epic: Epic-002
+
+Bug log
+- No bug entries yet.
+
+Status markers
+- `not started`
+- `investigating`
+- `attempted`
+- `fixed`
+- `blocked`
+
+Entry template
+- Bug title:
+- Repro steps:
+- Expected behavior:
+- Actual behavior:
+- Suspected cause:
+- Attempted fixes:
+- Final fix if solved:
+- Status:

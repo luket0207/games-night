@@ -1,0 +1,20 @@
+Epic: Epic-003
+Status: not started
+
+Purpose
+- Track only the features and sub-features that are explicitly requested for this epic.
+
+Status markers
+- `not started`
+- `in progress`
+- `done`
+- `blocked`
+
+Feature list
+- No features added yet.
+
+Stop point
+- Start testing only after the current feature implementation and notes are complete.
+
+Testing checkpoints
+- Add feature-specific manual testing checkpoints here when implementation begins.

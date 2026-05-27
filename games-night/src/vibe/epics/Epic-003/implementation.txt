@@ -1,0 +1,17 @@
+Epic: Epic-003
+
+Implementation log
+- No implementation entries yet.
+
+Entry template
+- Feature name:
+- What was implemented:
+- Exact scope completed:
+- Existing components/hooks/utilities/styles considered:
+- What was reused:
+- What was newly created:
+- Why new code was needed where reuse was not possible:
+- Files changed:
+- What was intentionally not changed:
+- Assumptions made:
+- Tradeoffs or follow-up tasks:

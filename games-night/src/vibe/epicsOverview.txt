@@ -1,0 +1,19 @@
+Epic-001
+- Status: in progress
+- Epic folder: `src/vibe/epics/Epic-001/`
+- Latest notes:
+  - Replaced the CRA boilerplate with a routed mobile-width app shell and page-level SCSS.
+  - Added bilingual homepage/Total Rickall routing with shared home and language icons.
+  - Added QR modals, Matrix Game linking, and GitHub Pages deploy configuration.
+
+Epic-002
+- Status: not started
+- Epic folder: `src/vibe/epics/Epic-002/`
+- Latest notes:
+  - Created epic tracking files: `features.txt`, `implementation.txt`, `bugs.txt`, and `testing.txt`.
+
+Epic-003
+- Status: not started
+- Epic folder: `src/vibe/epics/Epic-003/`
+- Latest notes:
+  - Created epic tracking files: `features.txt`, `implementation.txt`, `bugs.txt`, and `testing.txt`.

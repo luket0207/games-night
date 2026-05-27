@@ -1,0 +1,73 @@
+Epic: Epic-001
+
+Implementation log
+- Feature name: Epic-001 feature implementation pass
+- What was implemented:
+  - Replaced the Create React App boilerplate with a routed mobile-width app shell.
+  - Added homepage and Total Rickall page files in the requested folder structure.
+  - Added lightweight English and Japanese copy switching with shared home/language controls.
+  - Added homepage QR dialogs and the Matrix Game external link flow.
+  - Added GitHub Pages deployment configuration and SPA fallback files.
+- Exact scope completed:
+  - Feature-001 through Feature-005 from `src/vibe/epics/Epic-001/features.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing CRA scaffold files in `src/` and `public/`.
+  - Reviewed current package setup in `package.json`.
+- What was reused:
+  - Reused the existing CRA app entry, test setup, favicon, manifest structure, and build pipeline.
+- What was newly created:
+  - `src/App.jsx`
+  - `src/App.scss`
+  - `src/app/AppShell.jsx`
+  - `src/app/appShell.scss`
+  - `src/app/appContent.js`
+  - `src/pages/home/home.jsx`
+  - `src/pages/home/home.scss`
+  - `src/pages/totalRickall/totalRickall.jsx`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/App.test.jsx`
+  - `src/index.scss`
+  - `public/404.html`
+- Why new code was needed where reuse was not possible:
+  - The repository only contained default Create React App demo files, so new route, page, copy, and styling files were needed to satisfy the requested homepage, routing, bilingual shell, and modal behavior.
+- Files changed:
+  - `package.json`
+  - `public/index.html`
+  - `public/manifest.json`
+  - `public/404.html`
+  - `src/index.js`
+  - `src/App.jsx`
+  - `src/App.scss`
+  - `src/App.test.jsx`
+  - `src/index.scss`
+  - `src/app/AppShell.jsx`
+  - `src/app/appShell.scss`
+  - `src/app/appContent.js`
+  - `src/pages/home/home.jsx`
+  - `src/pages/home/home.scss`
+  - `src/pages/totalRickall/totalRickall.jsx`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - Removed unused CRA files: `src/App.js`, `src/App.css`, `src/App.test.js`, `src/index.css`, `src/logo.svg`, `src/reportWebVitals.js`
+- What was intentionally not changed:
+  - No real Total Rickall gameplay/content was added beyond the requested placeholder page.
+  - No global navigation menu, footer navigation, or extra game links were added.
+  - No persistence beyond in-memory route-to-route language state was added.
+- Assumptions made:
+  - Using a lightweight app-level state for language switching was sufficient because refresh persistence was optional.
+  - GitHub Pages SPA fallback support was needed to keep clean route paths with `BrowserRouter`.
+- Tradeoffs or follow-up tasks:
+  - PrimeReact styles trigger noisy JSDOM console parsing warnings during tests because of injected `@layer` CSS, but the test suite still passes.
+  - Manual browser verification on mobile and desktop-width shells should be run as a separate follow-up.
+
+Entry template
+- Feature name:
+- What was implemented:
+- Exact scope completed:
+- Existing components/hooks/utilities/styles considered:
+- What was reused:
+- What was newly created:
+- Why new code was needed where reuse was not possible:
+- Files changed:
+- What was intentionally not changed:
+- Assumptions made:
+- Tradeoffs or follow-up tasks:

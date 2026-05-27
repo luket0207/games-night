@@ -1,0 +1,209 @@
+```txt
+Epic: Epic-001
+Status: in progress
+
+Purpose
+- Track only the features and sub-features that are explicitly requested for this epic.
+- Set up the basic structure, routing, styling approach, bilingual controls, GitHub Pages deployment, and homepage for the games-night site.
+
+Status markers
+- `not started`
+- `in progress`
+- `done`
+- `blocked`
+
+Feature list
+
+Feature-001: Basic project cleanup, routing, and mobile shell
+Status: done
+
+Purpose
+- Remove the default React boilerplate and replace it with the basic site structure.
+- The app already exists, so do not create a new Vite app or run any Vite setup commands.
+
+Requirements
+- Remove unused React boilerplate files, assets, styles, and demo content.
+- Set up routing using `react-router-dom`.
+- Create the following pages:
+  - Homepage
+    - Default route: `/`
+  - Total Rickall
+    - Route: `/total-rickall`
+- Create the page files using this folder structure:
+
+src
+- pages
+  - home
+    - home.jsx
+    - home.scss
+  - totalRickall
+    - totalRickall.jsx
+    - totalRickall.scss
+
+Mobile-first layout requirements
+- The site will be viewed on mobile 99% of the time.
+- The app should always render inside a mobile-width layout, even on desktop.
+- On desktop screens, center the mobile layout horizontally on the page.
+- Avoid designing a wide desktop layout.
+
+Notes
+- Do not build any real Total Rickall page content yet.
+- The Total Rickall page only needs to exist as a routed placeholder for now.
+- Completed with a mobile-width app shell, homepage route, Total Rickall placeholder route, and removal of the default CRA demo scaffold.
+
+
+Feature-002: GitHub Pages setup
+Status: done
+
+Purpose
+- Set up the existing project so it can be deployed to GitHub Pages.
+
+Requirements
+- The GitHub repository already exists.
+- The repository name is:
+
+games-night
+
+- Set up the project so it can deploy to GitHub Pages at:
+
+https://luket0207.github.io/games-night/
+
+- Create or configure the `gh-pages` branch as needed.
+- Make the initial commit needed for GitHub Pages setup.
+- Add a clear repeatable method/script for deploying future updates to the GitHub Pages branch.
+
+Notes
+- Do not recreate the repository.
+- Do not create a new app from scratch.
+- Use the existing project.
+- Completed with `homepage`, `predeploy`, and `deploy` scripts plus SPA fallback files for GitHub Pages routing.
+
+
+Feature-003: Bilingual language switching
+Status: done
+
+Purpose
+- Make the site bilingual in English and Japanese.
+
+Requirements
+- Add support for English and Japanese text.
+- Add a language switch icon in the top right of the screen.
+- Use Font Awesome for the language switch icon.
+- The user should be able to change language at any time.
+- The selected language should persist while navigating between pages.
+- Page content should update based on the currently selected language.
+
+Persistence requirements
+- The language choice should remain active when moving from one route to another.
+- It does not need to survive a full browser refresh unless this is simple to add without overbuilding.
+
+Notes
+- Keep the language system lightweight.
+- Do not introduce a heavy internationalisation library unless it is already installed or clearly necessary.
+- Completed with a lightweight app-level language toggle that updates both routes and persists during navigation.
+
+
+Feature-004: Page-level SCSS and shared top icons only
+Status: done
+
+Purpose
+- Keep each page styled independently while maintaining only the minimum shared controls across the app.
+
+Requirements
+- Each page should have its own SCSS stylesheet.
+- Homepage styles should live in:
+
+src/pages/home/home.scss
+
+- Total Rickall styles should live in:
+
+src/pages/totalRickall/totalRickall.scss
+
+Shared UI requirements
+- The only consistent elements between pages should be:
+  - A language switch icon in the top right.
+  - A home icon in the top left.
+- The home icon should take the user back to the homepage.
+- Use Font Awesome for the home icon.
+- There should be no navigation menu.
+- Do not add a full nav bar, tabs, drawer menu, footer nav, or any other global navigation.
+
+Notes
+- Keep shared layout components minimal.
+- The homepage buttons are allowed because they are homepage content, not global navigation.
+- Completed with page-specific SCSS files and only the shared home and language controls in the shell.
+
+
+Feature-005: Homepage design and game buttons
+Status: done
+
+Purpose
+- Build an impressive, modern, mobile-first homepage with a stylish board game theme.
+
+Scope
+- This feature only affects the homepage.
+- Do not build or style the Total Rickall page in this feature.
+- The Total Rickall page remains out of scope except for linking to it.
+
+Homepage design requirements
+- Create a cool, modern homepage theme.
+- Use a textured background.
+- Make the page feel stylish, polished, and visually impressive.
+- The design should have a board game style or board game night feeling.
+- Keep the layout mobile-first and suitable for the fixed mobile-width app shell.
+
+Text requirements
+- The homepage title should be:
+
+Games Night!
+
+Font requirements
+- Use the Google Font `Chewy` for the homepage title.
+- Use the Google Font `Baloo 2` for the rest of the English homepage text.
+- For Japanese text, choose Google Fonts that support Japanese characters and match the playful board game feeling as closely as possible.
+
+Homepage buttons
+- Add 3 buttons to the homepage:
+
+1. QR Code
+- Opens a modal.
+- The modal should show a QR code linking to:
+
+https://luket0207.github.io/games-night/
+
+2. Total Rickall
+- Takes the user to the Total Rickall page.
+- Route:
+
+/total-rickall
+
+3. Matrix Game
+- Opens a modal.
+- The modal should show:
+  - A QR code linking to:
+
+https://luket0207.github.io/matrix-game/
+
+  - A clickable text link to:
+
+https://luket0207.github.io/matrix-game/
+
+Modal requirements
+- The QR Code button should open a modal, not navigate away.
+- The Matrix Game button should open a modal, not navigate away.
+- Modals should be mobile-friendly.
+- Modals should be easy to close.
+
+Notes
+- Keep the homepage polished but do not overbuild extra features.
+- Do not add extra games beyond the 3 buttons listed above.
+- Do not start implementing Total Rickall content yet.
+- Completed with a mobile-first board-game themed homepage, QR dialogs, and the three requested actions.
+
+Stop point
+- Epic feature implementation is complete for this pass.
+- Manual browser regression on mobile and desktop-width shells should be the next separate step.
+
+Testing checkpoints
+- `npm run build`
+- `npm test -- --runInBand` with `CI=true`

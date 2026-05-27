@@ -1,0 +1,52 @@
+.total-rickall-page {
+  min-height: 100vh;
+  padding: 6rem 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(149, 226, 194, 0.22), transparent 28%),
+    linear-gradient(180deg, #0c1714 0%, #09100f 50%, #08090c 100%);
+}
+
+.total-rickall-page__card {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 1.8rem;
+  background: linear-gradient(180deg, rgba(14, 30, 26, 0.86), rgba(10, 13, 14, 0.92));
+  border: 1px solid rgba(170, 240, 212, 0.18);
+  box-shadow: 0 1.4rem 2.6rem rgba(0, 0, 0, 0.28);
+  color: #effff8;
+}
+
+.total-rickall-page__badge {
+  margin: 0;
+  color: #94e2c2;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.total-rickall-page__title {
+  margin: 0.65rem 0 0;
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.total-rickall-page__description {
+  margin: 0.95rem 0 0;
+  color: rgba(239, 255, 248, 0.84);
+  line-height: 1.65;
+}
+
+html[lang='ja'] .total-rickall-page__badge,
+html[lang='ja'] .total-rickall-page__title,
+html[lang='ja'] .total-rickall-page__description {
+  font-family: var(--font-body-ja);
+}
+
+@media (min-width: 600px) {
+  .total-rickall-page {
+    min-height: calc(100vh - 3rem);
+  }
+}

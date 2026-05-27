@@ -1,0 +1,51 @@
+.app-shell-layout {
+  min-height: 100vh;
+  position: relative;
+}
+
+.app-shell-layout__controls {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.app-shell-layout__icon-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(22, 17, 13, 0.72);
+  color: #fff7e7;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  box-shadow: 0 0.9rem 1.8rem rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(14px);
+  pointer-events: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app-shell-layout__icon-button--language {
+  width: auto;
+  padding: 0 0.85rem;
+}
+
+.app-shell-layout__language-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 600px) {
+  .app-shell-layout {
+    min-height: calc(100vh - 3rem);
+  }
+}

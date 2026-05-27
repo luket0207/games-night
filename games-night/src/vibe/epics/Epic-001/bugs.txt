@@ -1,0 +1,24 @@
+Bug-001
+
+Status: Not Started
+
+The element home-page__panel on the homepage should be achored to the top of the page not the bottom. We still want some padding between the top of this element and the app-shell-layout__controls though.
+
+
+Bug-002
+
+Status: Not Started
+
+The elements home-page__description and home-page__kicker were not asked for. Can you please remove them and refrain from adding elements that have not been asked for in the future.
+
+
+Bug-003
+
+Status: Not Started
+
+The title in home-page__title should be centered. 
+
+
+Bug-004
+
+The element app-shell-layout__controls should be sticky and always visible at the top of the page. 

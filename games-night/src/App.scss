@@ -1,0 +1,29 @@
+.app-frame {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top, rgba(222, 185, 125, 0.16), transparent 30%),
+    linear-gradient(180deg, #2f241a 0%, #17110d 100%);
+}
+
+.app-shell {
+  width: min(100vw, 430px);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #120f0d;
+}
+
+@media (min-width: 600px) {
+  .app-frame {
+    padding: 1.5rem;
+    align-items: center;
+  }
+
+  .app-shell {
+    min-height: calc(100vh - 3rem);
+    border-radius: 32px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+  }
+}

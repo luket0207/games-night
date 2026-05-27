@@ -1,0 +1,38 @@
+Epic: Epic-001
+
+Testing log
+- Feature name: Epic-001 feature implementation pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open the homepage at `/`.
+  3. Confirm the app stays in a mobile-width shell on both narrow and wide browser windows.
+  4. Confirm the home icon appears in the top left and the language switch appears in the top right.
+  5. Tap the language switch and confirm homepage and Total Rickall text change between English and Japanese.
+  6. Tap `QR Code` and confirm a modal opens with a QR code for `https://luket0207.github.io/games-night/`.
+  7. Tap `Matrix Game` and confirm a modal opens with a QR code plus a clickable link for `https://luket0207.github.io/matrix-game/`.
+  8. Tap `Total Rickall` and confirm the app routes to `/total-rickall`.
+  9. Tap the home icon and confirm the app returns to `/`.
+- Expected result:
+  - The app renders inside a centered mobile-width shell, route changes work, language changes update page copy immediately, and both modals open and close cleanly.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - None for the current scaffolded scope beyond future feature-specific coverage.
+- Test status:
+  - passed
+
+Status markers
+- `not started`
+- `in progress`
+- `passed`
+- `failed`
+- `blocked`
+
+Entry template
+- Feature name:
+- Manual test steps:
+- Expected result:
+- Automated tests completed:
+- Automated tests still needed:
+- Test status:
