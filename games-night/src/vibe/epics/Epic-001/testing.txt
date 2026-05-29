@@ -1,6 +1,67 @@
 Epic: Epic-001
 
 Testing log
+- Feature name: Epic-001 Total Rickall image vertical trim bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open `/total-rickall`.
+  3. Switch to Japanese.
+  4. Inspect several card images such as `Morty`, `Beth`, and `Rick`.
+  5. Confirm the images still sit inside their own matching card entries.
+  6. Confirm the top and bottom of each image are now trimmed slightly as well as the left and right sides.
+- Expected result:
+  - The Japanese Total Rickall images remain in their matching card entries and are clipped by 2px on all four sides.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A quick manual browser pass remains useful for confirming the extra top and bottom trim visually.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 Total Rickall per-card image placement bug fix pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open `/total-rickall`.
+  3. Confirm the English page still shows no Total Rickall card images.
+  4. Switch to Japanese.
+  5. Confirm each card image appears at the top of its own matching card entry, such as `Morty`, `Beth`, and `Rick`.
+  6. Confirm the images are no longer grouped only at the top of the coloured and non-coloured sections.
+  7. Confirm the card images still fit on mobile without horizontal scrolling.
+  8. Confirm the left and right sides of each image are slightly clipped.
+- Expected result:
+  - The Japanese Total Rickall page shows each image inside its own matching translation card, while the English page still shows no card images.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A quick manual browser pass remains useful for confirming the 2px clipping visually.
+- Test status:
+  - passed
+
+- Feature name: Epic-001 Total Rickall Japanese section images pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Open `/total-rickall`.
+  3. Confirm the English page does not show any Total Rickall card images.
+  4. Switch to Japanese.
+  5. Scroll to the coloured-card section and confirm the relevant card images appear before the section title.
+  6. Scroll to the non-coloured-card section and confirm the relevant card images appear before the section title.
+  7. Confirm the images are centered, remain readable on mobile, and do not cause horizontal scrolling.
+  8. Confirm the existing card translations still appear below the images.
+- Expected result:
+  - The Japanese Total Rickall page shows the requested card images above the coloured and non-coloured section titles, while the English page continues to show no card images.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A quick manual browser pass remains useful for confirming the 220px image sizing and in-context mobile layout.
+- Test status:
+  - passed
+
 - Feature name: Epic-001 Japanese Total Rickall colour example removal bug fix pass
 - Manual test steps:
   1. Run `npm start`.

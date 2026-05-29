@@ -1,6 +1,102 @@
 Epic: Epic-001
 
 Implementation log
+- Feature name: Epic-001 Total Rickall image vertical trim bug fix pass
+- What was implemented:
+  - Updated the Japanese Total Rickall card image clipping so each image also trims 2px from the top and bottom, in addition to the existing left and right trim.
+- Exact scope completed:
+  - Bug-017 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the current Total Rickall page-level SCSS for the per-card image styling.
+- What was reused:
+  - Reused the existing per-card image frame and image classes added in the previous Total Rickall image pass.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new structure was needed; the fix only required a small adjustment to the existing image clipping rule.
+- Files changed:
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - No image placement, content, routes, or homepage behavior changed in this pass.
+  - The English Total Rickall page still shows no card images.
+- Assumptions made:
+  - “A further 2px from the top and bottom only” was interpreted as adding 2px clipping to the top and bottom while keeping the previously requested 2px clipping on the left and right.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 Total Rickall per-card image placement bug fix pass
+- What was implemented:
+  - Moved the Japanese Total Rickall card images from section-level groups into their matching individual card entries.
+  - Updated the Total Rickall card renderer so each image appears at the top of its own translation card.
+  - Added 2px side clipping to all rendered Total Rickall card images.
+  - Added automated assertions confirming specific images render inside their matching card articles.
+- Exact scope completed:
+  - Bug-016 from `src/vibe/epics/Epic-001/bugs.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing Total Rickall content data file.
+  - Reviewed the existing Total Rickall card renderer in `src/pages/totalRickall/totalRickall.jsx`.
+  - Reviewed the current page-level SCSS and route tests in `src/App.test.jsx`.
+- What was reused:
+  - Reused the existing Total Rickall translation-card layout, page-level SCSS file, bilingual content structure, and route-level test setup.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new route or component structure was needed; the fix only required moving the existing image metadata to the individual card records, rendering images inside the current card articles, and updating the image styling.
+- Files changed:
+  - `src/pages/totalRickall/totalRickallContent.js`
+  - `src/pages/totalRickall/totalRickall.jsx`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/App.test.jsx`
+  - `src/vibe/epics/Epic-001/bugs.txt`
+- What was intentionally not changed:
+  - The English Total Rickall page still shows no card images.
+  - No homepage content, routes, copy, or language-toggle behavior changed in this pass.
+  - The existing Japanese translations and card order were left unchanged.
+- Assumptions made:
+  - “Their own cards respective sections” was interpreted as each individual translation card/article rather than creating new route sections per card.
+  - Clipping 2px from the sides applied to every displayed Total Rickall card image on the Japanese page only.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+
+- Feature name: Epic-001 Total Rickall Japanese section images pass
+- What was implemented:
+  - Added Japanese-only Total Rickall card image groups above the coloured-card and non-coloured-card sections.
+  - Imported the existing card images from `src/assets/images/totalRickall` and attached them to the existing Japanese section content data.
+  - Updated the Total Rickall page renderer to show section images before the section title when image data is present.
+  - Added reusable section-image styling with centered wrapping images at 220px height.
+  - Added automated assertions covering Japanese image presence and English image absence.
+- Exact scope completed:
+  - Feature-007 from `src/vibe/epics/Epic-001/features.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing Total Rickall content data file.
+  - Reviewed the existing Total Rickall page renderer and page-level SCSS.
+  - Reviewed the current Total Rickall route tests in `src/App.test.jsx`.
+- What was reused:
+  - Reused the existing Total Rickall section-based content model, page renderer, page-level SCSS file, and route-level test setup.
+- What was newly created:
+  - No new files were created.
+- Why new code was needed where reuse was not possible:
+  - No new route or component structure was needed; the feature only required extending the existing section data with image metadata, rendering those images conditionally, and styling them in the current page stylesheet.
+- Files changed:
+  - `src/pages/totalRickall/totalRickallContent.js`
+  - `src/pages/totalRickall/totalRickall.jsx`
+  - `src/pages/totalRickall/totalRickall.scss`
+  - `src/App.test.jsx`
+  - `src/vibe/epics/Epic-001/features.txt`
+- What was intentionally not changed:
+  - The English Total Rickall page does not show the card images.
+  - No homepage content, routes, copy, or language-toggle behavior changed in this pass.
+  - The existing Japanese translations and section structure were left unchanged apart from adding the requested images.
+- Assumptions made:
+  - The correct interpretation of "image or images" was to show all existing card images that belong to each of the two requested card sections.
+  - The image filenames in `src/assets/images/totalRickall` were the intended source of truth for mapping cards to the coloured and non-coloured sections.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+  - PrimeReact JSDOM stylesheet parsing warnings and React Router future-flag warnings still appear during tests, but the suite passes.
+
 - Feature name: Epic-001 Japanese Total Rickall colour example removal bug fix pass
 - What was implemented:
   - Removed the extra example sentence from the Japanese `\u8272\u306b\u3064\u3044\u3066` section on the Total Rickall page.

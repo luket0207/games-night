@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import App from './App';
 import TotalRickallPage from './pages/totalRickall/totalRickall';
 import { totalRickallContent } from './pages/totalRickall/totalRickallContent';
@@ -26,6 +26,8 @@ test('renders the English Total Rickall instructions without translation cards',
   expect(
     screen.queryByText('Coloured Cards / \u8272\u4ed8\u304d\u30ab\u30fc\u30c9')
   ).not.toBeInTheDocument();
+  expect(screen.queryByAltText('Morty card')).not.toBeInTheDocument();
+  expect(screen.queryByAltText('Rick card')).not.toBeInTheDocument();
 });
 
 test('renders the Japanese Total Rickall sections and card translations', () => {
@@ -65,9 +67,13 @@ test('renders the Japanese Total Rickall sections and card translations', () => 
   expect(totalRickallContent.ja.sections[5].title).toBe(
     '\u8272\u4ed8\u304d\u30ab\u30fc\u30c9'
   );
+  expect(totalRickallContent.ja.sections[5].cards).toHaveLength(5);
+  expect(totalRickallContent.ja.sections[5].cards[0].image.alt).toBe('Morty card');
   expect(totalRickallContent.ja.sections[6].title).toBe(
     '\u8272\u306a\u3057\u30ab\u30fc\u30c9'
   );
+  expect(totalRickallContent.ja.sections[6].cards).toHaveLength(7);
+  expect(totalRickallContent.ja.sections[6].cards[0].image.alt).toBe('Rick card');
 
   render(<TotalRickallPage content={totalRickallContent.ja} />);
 
@@ -89,4 +95,33 @@ test('renders the Japanese Total Rickall sections and card translations', () => 
   expect(
     screen.queryByText('Non-Coloured Cards / \u8272\u306a\u3057\u30ab\u30fc\u30c9')
   ).not.toBeInTheDocument();
+  expect(screen.getByAltText('Morty card')).toBeInTheDocument();
+  expect(screen.getByAltText('Beth card')).toBeInTheDocument();
+  expect(screen.getByAltText('Jerry card')).toBeInTheDocument();
+  expect(screen.getByAltText('Summer card')).toBeInTheDocument();
+  expect(
+    screen.getByAltText("I've Known You For 15 Years card")
+  ).toBeInTheDocument();
+  expect(screen.getByAltText('Rick card')).toBeInTheDocument();
+  expect(screen.getByAltText("You Can't Kill Me card")).toBeInTheDocument();
+  expect(screen.getByAltText('Mr. Poopybutthole card')).toBeInTheDocument();
+  expect(screen.getByAltText('Is Something Wrong, Beth? card')).toBeInTheDocument();
+  expect(
+    screen.getByAltText('I Tried to Shoot Summer 10 Minutes Ago card')
+  ).toBeInTheDocument();
+  expect(screen.getByAltText('Bitch of a Sister card')).toBeInTheDocument();
+  expect(screen.getByAltText('Me Too card')).toBeInTheDocument();
+  expect(screen.getAllByRole('img')).toHaveLength(12);
+
+  const mortyCard = screen.getByText('Morty').closest('article');
+  const bethCard = screen.getByText('Beth').closest('article');
+  const rickCard = screen.getByText('Rick').closest('article');
+
+  expect(mortyCard).not.toBeNull();
+  expect(bethCard).not.toBeNull();
+  expect(rickCard).not.toBeNull();
+
+  expect(within(mortyCard).getByAltText('Morty card')).toBeInTheDocument();
+  expect(within(bethCard).getByAltText('Beth card')).toBeInTheDocument();
+  expect(within(rickCard).getByAltText('Rick card')).toBeInTheDocument();
 });

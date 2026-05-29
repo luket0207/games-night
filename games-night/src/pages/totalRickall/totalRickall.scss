@@ -96,6 +96,24 @@
   gap: 0.9rem;
 }
 
+.total-rickall-page__translation-image-frame {
+  justify-self: center;
+  display: block;
+  max-width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 0.95rem 1.9rem rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.total-rickall-page__translation-image {
+  display: block;
+  height: 220px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  clip-path: inset(2px 2px 2px 2px);
+}
+
 .total-rickall-page__translation-block {
   display: grid;
   gap: 0.25rem;

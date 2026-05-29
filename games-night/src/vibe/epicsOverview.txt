@@ -2,6 +2,9 @@ Epic-001
 - Status: in progress
 - Epic folder: `src/vibe/epics/Epic-001/`
 - Latest notes:
+  - Added the extra 2px top-and-bottom trim to the Japanese Total Rickall card images.
+  - Moved Japanese Total Rickall card images into their matching card entries and clipped 2px from the left and right sides.
+  - Added Japanese-only Total Rickall card images above the coloured and non-coloured translation sections.
   - Removed the extra example sentence from the Japanese Total Rickall colour guidance.
   - Translated the remaining English example sentence and card labels on the Japanese Total Rickall page, and removed the English prefixes from the affected Japanese section titles.
   - Corrected the Total Rickall shooting instruction in both languages so it now explains dealing a new character onto the board after shooting a real character.

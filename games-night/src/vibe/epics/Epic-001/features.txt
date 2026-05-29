@@ -494,3 +494,84 @@ Testing checkpoints
 - Confirm there is no horizontal scrolling.
 - Confirm the home icon still returns the user to `/`.
 - Confirm no unrelated homepage content was changed.
+
+
+```txt
+Feature-007: Add Total Rickall card images to Japanese page sections
+Status: done
+
+Purpose
+- Add the Total Rickall card images to the Japanese version of the Total Rickall rules page.
+- The images should make the translation sections easier to recognise during gameplay.
+
+Scope
+- This feature only affects the Japanese version of the Total Rickall page.
+- Do not add these card images to the English version unless explicitly requested later.
+- Do not change the meaning, wording, or structure of the existing rules and translations unless needed to place the images correctly.
+- Do not change the homepage.
+
+Image location
+- The card images have already been added to:
+
+src/assets/images/totalRickall
+
+Requirements
+- Import and display the relevant images from:
+
+src/assets/images/totalRickall
+
+- Add images to their respective sections on the Japanese Total Rickall page.
+- Images should be displayed at the very top of each relevant section.
+- The image should appear above the section title.
+- The image should literally be the first visible thing inside that section.
+
+Sections needing images
+- Add the coloured card image or images to the coloured cards section.
+- Add the non-coloured card image or images to the non-coloured cards section.
+
+Placement requirements
+- For each section, the image should appear:
+  - At the top of the section.
+  - Before the section heading.
+  - Centered horizontally.
+
+Image sizing requirements
+- All added card images should be:
+
+220px high
+
+- Maintain the original image aspect ratio.
+- Do not stretch or distort the images.
+- If width needs to be controlled, use `auto` width unless there is a mobile layout issue.
+
+Styling requirements
+- Add the image styling in:
+
+src/pages/totalRickall/totalRickall.scss
+
+- Use a reusable class for Total Rickall section images.
+- Keep the layout mobile-friendly.
+- Ensure the images do not cause horizontal scrolling.
+- Add sensible spacing between the image and the section title.
+
+Notes
+- Match images to the correct section based on their filenames.
+- Do not rename image files unless absolutely necessary.
+- Do not add extra card sections.
+- Do not add new gameplay functionality.
+- Do not alter the language switch behavior.
+- Completed with Japanese-only card image groups rendered above the coloured and non-coloured sections using the existing Total Rickall content/rendering flow.
+
+Testing checkpoints
+- Confirm the Japanese Total Rickall page shows the relevant images.
+- Confirm the English Total Rickall page does not show the card images.
+- Confirm each image appears above its section title.
+- Confirm each image is centered.
+- Confirm each image is 220px high.
+- Confirm each image keeps its original aspect ratio.
+- Confirm the images load correctly from `src/assets/images/totalRickall`.
+- Confirm the page remains readable on mobile dimensions.
+- Confirm there is no horizontal scrolling.
+- Confirm the existing card translations are still present and unchanged.
+- Confirm the existing language switch still works correctly.
+```

@@ -369,3 +369,65 @@ Status:
 
 
 たとえば、そのカードが赤なら、赤のキャラクターにだけ使います。
+
+
+Bug-016
+
+Status: fixed
+
+Repro steps:
+- Open `/total-rickall`.
+- Switch to Japanese.
+- Scroll to the coloured-card and non-coloured-card translation sections.
+
+Expected behavior:
+- Each card image should appear at the top of its own matching translation card, such as the `Beth` image inside the `Beth` card and the `Morty` image inside the `Morty` card.
+- The left and right sides of each displayed image should be clipped by 2px.
+
+Actual behavior:
+- The Japanese page showed the card images grouped together at the top of the coloured and non-coloured sections instead of placing each image inside its matching card.
+- The images were not clipped by 2px on the sides.
+
+Suspected cause:
+- The image metadata was attached at the section level rather than the individual card level.
+- The shared image styling did not include any side clipping.
+
+Attempted fixes:
+- Moved the existing image metadata from the Japanese section objects into the matching individual card entries.
+- Updated the Total Rickall card renderer to place each image at the top of its own translation card.
+- Added 2px side clipping in the card image styling.
+- Added automated assertions to confirm matching image placement inside the relevant card articles.
+
+Final fix if solved:
+- Updated `src/pages/totalRickall/totalRickallContent.js`, `src/pages/totalRickall/totalRickall.jsx`, `src/pages/totalRickall/totalRickall.scss`, and `src/App.test.jsx` so each Japanese Total Rickall card shows its own image at the top of the card with 2px clipping on the left and right sides.
+
+Status:
+- fixed
+
+
+Bug-017
+
+Status: fixed
+
+Repro steps:
+- Open `/total-rickall`.
+- Switch to Japanese.
+- Inspect several displayed card images such as `Morty`, `Beth`, and `Rick`.
+
+Expected behavior:
+- The Japanese Total Rickall card images should keep their existing left/right clipping and also trim an additional 2px from the top and bottom.
+
+Actual behavior:
+- The images were clipped on the left and right only, with no additional top or bottom trim.
+
+Suspected cause:
+- The card image style only used horizontal clipping in the existing `clip-path` rule.
+
+Attempted fixes:
+- Updated the image clipping rule so the top and bottom are clipped by 2px as well.
+
+Final fix if solved:
+- Updated `src/pages/totalRickall/totalRickall.scss` so the Japanese Total Rickall card images are clipped by 2px on all four sides.
+
+Status:
+- fixed

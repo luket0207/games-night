@@ -50,6 +50,16 @@ function TotalRickallPage({ content }) {
                     className="total-rickall-page__translation-card"
                     key={card.englishName}
                   >
+                    {card.image ? (
+                      <div className="total-rickall-page__translation-image-frame">
+                        <img
+                          className="total-rickall-page__translation-image"
+                          src={card.image.src}
+                          alt={card.image.alt}
+                        />
+                      </div>
+                    ) : null}
+
                     <div className="total-rickall-page__translation-block">
                       <p className="total-rickall-page__translation-label">
                         {content.cardLabels.englishCard}
