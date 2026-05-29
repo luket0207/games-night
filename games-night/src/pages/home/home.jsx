@@ -46,6 +46,12 @@ function HomePage({ content }) {
             type="button"
           />
           <Button
+            className="home-page__action home-page__action--clank"
+            label={content.clankButton}
+            onClick={() => navigate('/clank')}
+            type="button"
+          />
+          <Button
             className="home-page__action home-page__action--matrix"
             label={content.matrixGameButton}
             onClick={() => setActiveDialog('matrix')}

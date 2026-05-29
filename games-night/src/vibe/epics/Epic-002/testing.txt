@@ -1,6 +1,28 @@
 Epic: Epic-002
 
 Testing log
+- Feature name: Epic-002 Clank bilingual rules page pass
+- Manual test steps:
+  1. Run `npm start`.
+  2. Confirm the homepage now shows a `Clank!` button alongside the existing buttons.
+  3. Select `Clank!` and confirm the app navigates to `/clank`.
+  4. Confirm the English page shows `Clank! Quick Rules`, the main rules section, and `Market Card Guide`.
+  5. Confirm the market guide includes entries for skill, swords, boots, gold, Clank, draw cards, healing, teleport or special movement, companions, devices, monsters, dragon attack cards, victory points, arrive effects, and acquire effects.
+  6. Use the language icon and confirm the page switches to Japanese content.
+  7. Confirm the Japanese page shows `クランク！かんたんルールガイド` and `マーケットカード説明`.
+  8. Select the home icon, confirm you return to `/`, and confirm the selected language is still active.
+  9. Open the Clank page again and confirm the same selected language is still used.
+  10. Confirm the page remains readable on a narrow mobile-width viewport and does not create horizontal scrolling.
+- Expected result:
+  - The homepage links to `/clank`, both English and Japanese Clank reference content render correctly, the shared language toggle persists across navigation, and the page uses a distinct Clank-themed style without breaking the rest of the app.
+- Automated tests completed:
+  - `npm run build`
+  - `CI=true npm test -- --runInBand`
+- Automated tests still needed:
+  - `npm run lint` is not available in the current project scripts.
+  - A manual browser pass remains useful for visual confirmation of the Clank page on mobile.
+- Test status:
+  - passed
 - No testing entries yet.
 
 Status markers

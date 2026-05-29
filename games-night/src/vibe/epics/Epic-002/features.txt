@@ -1,20 +1,384 @@
-Epic: Epic-002
-Status: not started
+```txt
+Feature-001: Add Clank page with bilingual rules and market card breakdown
+Status: done
 
 Purpose
-- Track only the features and sub-features that are explicitly requested for this epic.
+- Add a new page for the board game Clank.
+- The page should explain how to play the game in both English and Japanese.
+- The page should also include a beginner-friendly breakdown of what the market cards do in both English and Japanese.
+- The page should follow the same bilingual pattern already used for the Total Rickall page, but with its own unique visual style.
 
-Status markers
-- `not started`
-- `in progress`
-- `done`
-- `blocked`
+Scope
+- Add a new Clank page.
+- Add a homepage link/button to the Clank page.
+- Add English and Japanese rules content for Clank.
+- Add an English and Japanese breakdown of the market cards.
+- Give the Clank page its own styling.
+- Do not change the Total Rickall page unless shared routing or shared language logic needs a small adjustment.
+- Do not redesign the homepage beyond adding the new Clank button/link.
 
-Feature list
-- No features added yet.
+Route requirements
+- Add a new route for the Clank page:
+
+/clank
+
+Suggested file structure
+- Create the Clank page inside `src/pages` using the same page-folder pattern as the rest of the site:
+
+src
+- pages
+  - clank
+    - clank.jsx
+    - clank.scss
+
+Homepage requirements
+- Add a new homepage button/link for:
+
+Clank
+
+- The Clank button should navigate to:
+
+/clank
+
+- Keep the existing homepage buttons unchanged:
+  - QR Code
+  - Total Rickall
+  - Matrix Game
+- The new Clank link should fit naturally into the existing homepage design.
+
+Language requirements
+- The Clank page should use the existing English/Japanese language switch system.
+- The user should be able to switch between English and Japanese from the Clank page.
+- The selected language should persist when moving between pages.
+- The global language icon should remain in the top right.
+- The home icon should remain in the top left.
+
+Content requirements
+- Add rules for Clank in both English and Japanese.
+- Add a market card breakdown in both English and Japanese.
+- The rules should be written as a clear, simplified gameplay guide, not copied from the official rulebook.
+- The English and Japanese versions should cover the same core information.
+- The Japanese should be natural and easy to understand for Japanese players.
+- The page should be structured clearly so it can be used during a game.
+
+Rules content structure
+- Include clear sections such as:
+
+1. Game objective
+- Explain that players explore the dungeon, collect treasure, try to steal an artifact, and escape before being defeated by the dragon.
+
+2. Main idea
+- Explain that players use cards to move, fight monsters, gain skill, buy cards, collect treasure, and manage Clank.
+
+3. What happens on a turn
+- Explain the basic flow of a player turn:
+  - Play cards from hand.
+  - Use boots/movement to move through the dungeon.
+  - Use swords/attack to fight monsters.
+  - Use skill to buy cards from the market.
+  - Gain gold, secrets, items, and artifacts where relevant.
+  - Add Clank when card effects or board spaces tell you to.
+
+4. Movement
+- Explain boots/movement icons.
+- Explain that some paths need more movement.
+- Explain that some paths have monsters or special requirements.
+- Keep this simple and beginner-friendly.
+
+5. Fighting
+- Explain swords/attack icons.
+- Explain fighting monsters in the dungeon row or dealing with monster paths.
+- Explain that some monsters give rewards when defeated.
+
+6. Skill and buying cards
+- Explain skill points.
+- Explain buying cards from the dungeon row or available card areas.
+- Explain that bought cards usually go to the discard pile.
+
+7. Clank and the dragon bag
+- Explain what Clank is.
+- Explain that Clank cubes are added to the Clank area.
+- Explain that when the dragon attacks, cubes are drawn from the bag.
+- Explain that drawn player cubes cause damage.
+- Explain that making too much Clank increases danger.
+
+8. Artifacts and escaping
+- Explain that each player needs to collect an artifact.
+- Explain that after an artifact is taken, the dragon becomes more dangerous.
+- Explain that players should return to the surface and escape.
+- Explain that escaping gives a better result than being knocked out.
+
+9. Damage and losing health
+- Explain how damage works.
+- Explain that too much damage can knock a player out.
+- Keep the explanation simple and suitable for beginners.
+
+10. End of the game
+- Explain when the end game starts.
+- Explain that players compare scores from artifacts, treasure, cards, gold, and other scoring items.
+- Explain that the highest score wins.
+
+Market card breakdown requirements
+- Add a separate section for explaining the market cards.
+- This section should appear after the main rules section.
+- The section should be included in both English and Japanese.
+- The goal is to help players understand what the cards available to buy from the market actually do.
+- Keep the wording beginner-friendly.
+- Explain card effects by icon, keyword, and common card effect type rather than trying to list every possible card in the deck.
+- Do not copy official card text directly.
+- Do not create exact translations of official card text unless the text is supplied later.
+- Use simple explanations that help players make decisions during the game.
+
+Suggested English heading
+- Market Card Guide
+
+Suggested Japanese heading
+- マーケットカード説明
+
+Market card guide content
+- Include explanations for common card elements such as:
+
+1. Skill
+English explanation:
+- Skill is used to buy cards from the dungeon row or available card area.
+- Skill is usually shown with a blue skill icon or number.
+- If a card gives skill, you can spend that skill during the same turn.
+
+Japanese explanation:
+- スキルは、ダンジョン列や購入できるカードを買うために使います。
+- 多くの場合、青いスキルアイコンや数字で表示されています。
+- カードで得たスキルは、そのターン中に使えます。
+
+2. Swords / Attack
+English explanation:
+- Swords are used to fight monsters.
+- Some monsters appear in the dungeon row.
+- Some paths on the board also require swords to move through safely.
+- If you do not have enough swords for a monster path, you may take damage.
+
+Japanese explanation:
+- 剣はモンスターと戦うために使います。
+- モンスターはダンジョン列に出ることがあります。
+- 盤面の道によっては、安全に通るために剣が必要な場合もあります。
+- 剣が足りないままモンスターのいる道を通ると、ダメージを受けることがあります。
+
+3. Boots / Movement
+English explanation:
+- Boots are used to move through rooms in the dungeon.
+- One boot usually lets you move along one normal path.
+- Some paths need more movement or have special requirements.
+
+Japanese explanation:
+- ブーツは、ダンジョン内を移動するために使います。
+- 通常、ブーツ1つで普通の道を1つ進めます。
+- 道によっては、より多くの移動力や特別な条件が必要な場合があります。
+
+4. Gold
+English explanation:
+- Gold can be gained from cards, rooms, monsters, or treasure.
+- Gold is worth points at the end of the game.
+- Some effects may also use or give gold during the game.
+
+Japanese explanation:
+- ゴールドは、カード、部屋、モンスター、宝物などから手に入ります。
+- ゴールドはゲーム終了時に得点になります。
+- 効果によっては、ゲーム中にゴールドを使ったり得たりすることもあります。
+
+5. Clank
+English explanation:
+- Some cards make you add Clank.
+- When you add Clank, place your cubes in the Clank area.
+- Later, those cubes may go into the dragon bag.
+- More Clank means more risk when the dragon attacks.
+
+Japanese explanation:
+- 一部のカードは、クランクを増やします。
+- クランクを増やす時は、自分のキューブをクランク置き場に置きます。
+- そのキューブは後でドラゴンバッグに入る可能性があります。
+- クランクが多いほど、ドラゴンの攻撃でダメージを受ける危険が高くなります。
+
+6. Draw cards
+English explanation:
+- Some cards let you draw more cards.
+- Drawing cards gives you more options during the same turn.
+- These cards can help create stronger turns.
+
+Japanese explanation:
+- 一部のカードは、追加でカードを引くことができます。
+- カードを引くと、そのターン中にできることが増えます。
+- 強いターンを作る助けになります。
+
+7. Healing
+English explanation:
+- Some cards or effects let you heal damage.
+- Healing removes damage from your health track.
+- Healing can help you survive long enough to escape.
+
+Japanese explanation:
+- 一部のカードや効果で、ダメージを回復できます。
+- 回復すると、自分の体力トラックからダメージを取り除きます。
+- 脱出するまで生き残る助けになります。
+
+8. Teleport or special movement
+English explanation:
+- Some cards let you move in unusual ways.
+- These effects may let you skip paths, move to specific rooms, or ignore some movement restrictions.
+- Follow the card text carefully when this happens.
+
+Japanese explanation:
+- 一部のカードは、特殊な移動を可能にします。
+- 道を飛ばしたり、特定の部屋へ移動したり、一部の移動制限を無視できる場合があります。
+- このような効果は、カードの説明に従って処理します。
+
+9. Companions
+English explanation:
+- Some cards are companions.
+- Companion cards often give useful effects when played.
+- Some other cards may become stronger if you have played a companion this turn.
+
+Japanese explanation:
+- カードの中には、仲間カードがあります。
+- 仲間カードは、出した時に便利な効果をくれることが多いです。
+- 他のカードの中には、このターンに仲間カードを出していると強くなるものもあります。
+
+10. Devices
+English explanation:
+- Some cards are devices.
+- Device cards usually give an immediate effect when bought or used.
+- After resolving the effect, follow the card instructions.
+
+Japanese explanation:
+- カードの中には、装置カードがあります。
+- 装置カードは、購入時や使用時にすぐ効果を発揮することが多いです。
+- 効果を処理したら、カードの指示に従います。
+
+11. Monsters
+English explanation:
+- Some cards in the dungeon row are monsters.
+- You do not buy monsters with skill.
+- Instead, you defeat them with swords.
+- When defeated, monsters give the reward shown on the card.
+
+Japanese explanation:
+- ダンジョン列にはモンスターカードが出ることがあります。
+- モンスターはスキルで購入しません。
+- 剣を使って倒します。
+- 倒したら、そのカードに書かれている報酬を得ます。
+
+12. Dragon attack cards
+English explanation:
+- Some cards cause the dragon to attack when they appear.
+- When this happens, refill the dungeon row first if needed, then resolve the dragon attack.
+- Cubes drawn from the dragon bag cause damage to the matching players.
+
+Japanese explanation:
+- 一部のカードは、出た時にドラゴンの攻撃を発生させます。
+- その場合、必要なら先にダンジョン列を補充してから、ドラゴンの攻撃を処理します。
+- ドラゴンバッグから引かれたキューブの色のプレイヤーはダメージを受けます。
+
+13. Victory points
+English explanation:
+- Some cards are worth victory points at the end of the game.
+- These points are added to your artifact, gold, treasure, and other scoring items.
+- Cards with victory points can help you win even if they are not immediately powerful.
+
+Japanese explanation:
+- 一部のカードは、ゲーム終了時に勝利点になります。
+- その点数は、アーティファクト、ゴールド、宝物、その他の得点と一緒に合計します。
+- すぐに強く見えないカードでも、勝利点があれば勝利に役立ちます。
+
+14. Arrive effects
+English explanation:
+- Some cards have effects that happen when they appear in the dungeon row.
+- Resolve these effects when the card arrives.
+- These effects may include dragon attacks, adding danger, or other immediate changes.
+
+Japanese explanation:
+- 一部のカードは、ダンジョン列に出た時に発動する効果を持っています。
+- そのカードが出た時に効果を処理します。
+- ドラゴンの攻撃、危険の追加、その他の即時効果が起こる場合があります。
+
+15. Acquire effects
+English explanation:
+- Some cards have effects that happen when you buy or gain them.
+- Resolve the acquire effect immediately.
+- After that, the card usually goes to your discard pile unless the card says otherwise.
+
+Japanese explanation:
+- 一部のカードは、購入した時や獲得した時に発動する効果を持っています。
+- 獲得時の効果はすぐに処理します。
+- その後、特に指示がなければ、そのカードは自分の捨て札に置きます。
+
+Market card display requirements
+- Present the market card guide as clear, scannable sections.
+- Each entry should show:
+  - English term or card element.
+  - Japanese term.
+  - English explanation when the page is in English.
+  - Japanese explanation when the page is in Japanese.
+- On the English page, show the English explanations.
+- On the Japanese page, show the Japanese explanations.
+- The Japanese page may also show the English term next to the Japanese term to help players match the printed English cards.
+- Use cards, panels, accordion sections, or grouped blocks to keep the section readable on mobile.
+- Avoid large tables if they cause horizontal scrolling.
+
+Design requirements
+- The Clank page should have its own unique visual identity.
+- It should look cool, modern, and polished.
+- It should be visually different from the Total Rickall page and homepage.
+- The style should be inspired by the feel and colours of Clank.
+- Use a dungeon/adventure/treasure theme.
+- Use colours that feel appropriate for Clank, such as:
+  - Dark dungeon tones
+  - Deep browns
+  - Gold/treasure accents
+  - Reds/oranges for dragon danger
+  - Stone or parchment-style sections
+- Keep the page readable on mobile.
+- Prioritise clear rule reading over decoration.
+- Use section cards, panels, icons, or visual dividers where helpful.
+
+Styling requirements
+- The Clank page should use its own SCSS file:
+
+src/pages/clank/clank.scss
+
+- Do not put Clank-specific styling into the Total Rickall SCSS file.
+- Avoid horizontal scrolling.
+- Make the page comfortable to read on a mobile-width layout.
+- Keep spacing consistent and readable.
+
+Notes
+- Do not copy the official Clank rulebook text directly.
+- Write a simplified original explanation of the rules.
+- Do not copy official card text directly.
+- The market card breakdown should explain common card symbols, keywords, and effect types rather than listing every card in the deck.
+- Do not add images unless images are already available in the project or explicitly provided later.
+- Do not add interactive game tools yet.
+- Do not add exact individual Clank card translations unless explicitly requested later.
+- Do not add extra routes beyond `/clank`.
 
 Stop point
 - Start testing only after the current feature implementation and notes are complete.
 
 Testing checkpoints
-- Add feature-specific manual testing checkpoints here when implementation begins.
+- Confirm the homepage has a new Clank button/link.
+- Confirm the Clank button navigates to `/clank`.
+- Confirm `/clank` displays the Clank page.
+- Confirm the Clank page has its own folder and files.
+- Confirm the Clank page uses `src/pages/clank/clank.scss`.
+- Confirm the English version shows the Clank rules in English.
+- Confirm the Japanese version shows the Clank rules in Japanese.
+- Confirm the English version includes the market card guide in English.
+- Confirm the Japanese version includes the market card guide in Japanese.
+- Confirm the market card guide explains common card elements including skill, swords, boots, gold, Clank, draw cards, healing, special movement, companions, devices, monsters, dragon attack cards, victory points, arrive effects, and acquire effects.
+- Confirm the language switch works on the Clank page.
+- Confirm the selected language persists when navigating away and back.
+- Confirm the home icon returns the user to `/`.
+- Confirm the Clank page looks visually different from the Total Rickall page.
+- Confirm the styling feels inspired by Clank: dungeon, treasure, adventure, dragon danger.
+- Confirm the page is readable on mobile dimensions.
+- Confirm there is no horizontal scrolling.
+- Confirm no Total Rickall content or styling was broken.
+- Confirm no official rulebook text or official card text has been copied directly.
+```

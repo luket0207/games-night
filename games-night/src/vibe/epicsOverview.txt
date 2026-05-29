@@ -21,9 +21,10 @@ Epic-001
   - Fixed Japanese-mode mixed-language font stacks so Roman text keeps the English fonts on the homepage and Total Rickall page.
 
 Epic-002
-- Status: not started
+- Status: in progress
 - Epic folder: `src/vibe/epics/Epic-002/`
 - Latest notes:
+  - Added the `/clank` bilingual rules page, homepage button, and Clank-themed market card guide.
   - Created epic tracking files: `features.txt`, `implementation.txt`, `bugs.txt`, and `testing.txt`.
 
 Epic-003

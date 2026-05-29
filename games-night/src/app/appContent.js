@@ -1,3 +1,4 @@
+import { clankContent } from '../pages/clank/clankContent';
 import { totalRickallContent } from '../pages/totalRickall/totalRickallContent';
 
 export const externalLinks = {
@@ -15,6 +16,7 @@ export const appContent = {
       title: 'Games Night!',
       qrButton: 'QR Code',
       totalRickallButton: 'Total Rickall',
+      clankButton: 'Clank!',
       matrixGameButton: 'Matrix Game',
       qrDialogTitle: 'Games Night QR Code',
       qrDialogDescription: 'Scan this code to open Games Night on your phone.',
@@ -24,6 +26,7 @@ export const appContent = {
       matrixLinkLabel: 'Open Matrix Game',
       closeButton: 'Close',
     },
+    clank: clankContent.en,
     totalRickall: totalRickallContent.en,
   },
   ja: {
@@ -35,6 +38,7 @@ export const appContent = {
       title: 'Games Night!',
       qrButton: 'QR\u30b3\u30fc\u30c9',
       totalRickallButton: '\u30c8\u30fc\u30bf\u30eb\u30fb\u30ea\u30c3\u30af\u30aa\u30fc\u30eb',
+      clankButton: '\u30af\u30e9\u30f3\u30af\uff01',
       matrixGameButton: '\u30de\u30c8\u30ea\u30c3\u30af\u30b9\u30b2\u30fc\u30e0',
       qrDialogTitle: 'Games Night QR\u30b3\u30fc\u30c9',
       qrDialogDescription:
@@ -45,6 +49,7 @@ export const appContent = {
       matrixLinkLabel: '\u30de\u30c8\u30ea\u30c3\u30af\u30b9\u30b2\u30fc\u30e0\u3092\u958b\u304f',
       closeButton: '\u9589\u3058\u308b',
     },
+    clank: clankContent.ja,
     totalRickall: totalRickallContent.ja,
   },
 };

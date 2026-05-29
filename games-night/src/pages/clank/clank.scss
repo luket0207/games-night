@@ -1,0 +1,198 @@
+.clank-page {
+  min-height: 100%;
+  flex: 1;
+  position: relative;
+  padding: 1.2rem;
+  background:
+    radial-gradient(circle at top right, rgba(244, 182, 88, 0.18), transparent 26%),
+    radial-gradient(circle at 15% 18%, rgba(183, 58, 33, 0.18), transparent 18rem),
+    linear-gradient(180deg, #20140f 0%, #140d09 48%, #0c0907 100%);
+}
+
+.clank-page__glow,
+.clank-page__glow::before,
+.clank-page__glow::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.clank-page__glow::before,
+.clank-page__glow::after {
+  content: '';
+}
+
+.clank-page__glow::before {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255, 207, 112, 0.14), transparent 10rem),
+    radial-gradient(circle at 82% 16%, rgba(196, 68, 41, 0.16), transparent 9rem),
+    radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.24), transparent 14rem);
+}
+
+.clank-page__glow::after {
+  opacity: 0.18;
+  background-image:
+    linear-gradient(120deg, transparent 0 40%, rgba(255, 214, 153, 0.12) 41%, transparent 42%),
+    linear-gradient(0deg, transparent 0 24%, rgba(255, 255, 255, 0.08) 25%, transparent 26%);
+  background-size: 100% 100%, 18px 18px;
+  mix-blend-mode: screen;
+}
+
+.clank-page__stack {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+}
+
+.clank-page__hero,
+.clank-page__chapter,
+.clank-page__rule-card,
+.clank-page__market-card {
+  border-radius: 1.55rem;
+  box-shadow: 0 1.2rem 2.6rem rgba(0, 0, 0, 0.28);
+}
+
+.clank-page__hero,
+.clank-page__chapter {
+  padding: 1.25rem;
+  border: 1px solid rgba(244, 200, 132, 0.18);
+  background:
+    linear-gradient(180deg, rgba(58, 36, 24, 0.96), rgba(24, 16, 12, 0.98)),
+    linear-gradient(135deg, rgba(255, 214, 153, 0.08), transparent 48%);
+  color: #fef5e4;
+}
+
+.clank-page__badge {
+  margin: 0;
+  color: #ffca7a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.clank-page__title {
+  margin: 0.55rem 0 0;
+  color: #fff7eb;
+  font-size: clamp(2rem, 8vw, 2.45rem);
+  line-height: 1.02;
+  text-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.26);
+}
+
+.clank-page__subtitle,
+.clank-page__chapter-copy {
+  margin: 0.85rem 0 0;
+  color: rgba(254, 245, 228, 0.82);
+  line-height: 1.65;
+}
+
+.clank-page__chapter-header {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.clank-page__chapter-title {
+  margin: 0;
+  color: #ffd694;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.clank-page__rules-grid,
+.clank-page__market-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.clank-page__rule-card,
+.clank-page__market-card {
+  border: 1px solid rgba(255, 222, 169, 0.16);
+  background:
+    linear-gradient(180deg, rgba(92, 63, 40, 0.92), rgba(45, 30, 21, 0.96)),
+    linear-gradient(135deg, rgba(255, 216, 156, 0.12), transparent 42%);
+  color: #fff6e6;
+}
+
+.clank-page__rule-card {
+  padding: 1rem;
+}
+
+.clank-page__market-card {
+  padding: 1rem;
+}
+
+.clank-page__rule-number {
+  width: fit-content;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffcf7d, #d77038);
+  color: #2d190f;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.clank-page__rule-title,
+.clank-page__market-title {
+  margin: 0.75rem 0 0;
+  color: #fff7ec;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.clank-page__rule-title {
+  font-size: 1.02rem;
+}
+
+.clank-page__market-label {
+  margin: 0;
+  color: #ffbf6f;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.clank-page__market-title {
+  font-size: 1rem;
+}
+
+.clank-page__rule-list,
+.clank-page__market-list {
+  margin: 0.85rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.clank-page__rule-item,
+.clank-page__market-item {
+  line-height: 1.62;
+  color: rgba(255, 246, 230, 0.9);
+  overflow-wrap: anywhere;
+}
+
+html[lang='ja'] .clank-page__badge,
+html[lang='ja'] .clank-page__title,
+html[lang='ja'] .clank-page__subtitle,
+html[lang='ja'] .clank-page__chapter-title,
+html[lang='ja'] .clank-page__chapter-copy,
+html[lang='ja'] .clank-page__rule-title,
+html[lang='ja'] .clank-page__rule-item,
+html[lang='ja'] .clank-page__market-title,
+html[lang='ja'] .clank-page__market-item {
+  font-family: var(--font-body-en), var(--font-body-ja);
+}
+
+@media (min-width: 600px) {
+  .clank-page {
+    min-height: 100%;
+  }
+
+  .clank-page__rules-grid,
+  .clank-page__market-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

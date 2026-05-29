@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AppShell from './app/AppShell';
 import { appContent } from './app/appContent';
+import ClankPage from './pages/clank/clank';
 import HomePage from './pages/home/home';
 import TotalRickallPage from './pages/totalRickall/totalRickall';
 import './App.scss';
@@ -33,6 +34,7 @@ function App() {
               }
             >
               <Route path="/" element={<HomePage content={content.home} />} />
+              <Route path="/clank" element={<ClankPage content={content.clank} />} />
               <Route
                 path="/total-rickall"
                 element={<TotalRickallPage content={content.totalRickall} />}

@@ -1,11 +1,50 @@
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import App from './App';
+import ClankPage from './pages/clank/clank';
+import { clankContent } from './pages/clank/clankContent';
 import TotalRickallPage from './pages/totalRickall/totalRickall';
 import { totalRickallContent } from './pages/totalRickall/totalRickallContent';
 
 test('renders the homepage title', () => {
   render(<App />);
   expect(screen.getByRole('heading', { name: 'Games Night!' })).toBeInTheDocument();
+});
+
+test('renders the English Clank rules and market guide', () => {
+  render(<ClankPage content={clankContent.en} />);
+
+  expect(screen.getByRole('heading', { name: 'Clank! Quick Rules' })).toBeInTheDocument();
+  expect(screen.getByText('How the Game Works')).toBeInTheDocument();
+  expect(screen.getByText('Market Card Guide')).toBeInTheDocument();
+  expect(screen.getByText('Game objective')).toBeInTheDocument();
+  expect(screen.getByText('Clank and the dragon bag')).toBeInTheDocument();
+  expect(screen.getByText('Acquire effects / 獲得時効果')).toBeInTheDocument();
+  expect(screen.getAllByText('Card element').length).toBeGreaterThan(0);
+});
+
+test('navigates to the Clank page and preserves language across pages', () => {
+  window.history.pushState({}, '', '/');
+  render(<App />);
+
+  fireEvent.click(screen.getByRole('button', { name: 'Clank!' }));
+  expect(screen.getByRole('heading', { name: 'Clank! Quick Rules' })).toBeInTheDocument();
+  expect(screen.getByText('Market Card Guide')).toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole('button', { name: 'Switch language to Japanese' }));
+  expect(
+    screen.getByRole('heading', { name: 'クランク！かんたんルールガイド' })
+  ).toBeInTheDocument();
+  expect(screen.getByText('マーケットカード説明')).toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole('link', { name: 'ホームページに戻る' }));
+  expect(screen.getByRole('heading', { name: 'Games Night!' })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'クランク！' })).toBeInTheDocument();
+
+  fireEvent.click(screen.getByRole('button', { name: 'クランク！' }));
+  expect(
+    screen.getByRole('heading', { name: 'クランク！かんたんルールガイド' })
+  ).toBeInTheDocument();
+  expect(screen.getByText('装置 / Devices')).toBeInTheDocument();
 });
 
 test('renders the English Total Rickall instructions without translation cards', () => {

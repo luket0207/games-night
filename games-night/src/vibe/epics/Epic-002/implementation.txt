@@ -1,6 +1,51 @@
 Epic: Epic-002
 
 Implementation log
+- Feature name: Epic-002 Clank bilingual rules page pass
+- What was implemented:
+  - Added a new `/clank` page with bilingual simplified Clank rules and a bilingual market card guide.
+  - Added a new Clank button to the homepage that navigates to the new page.
+  - Wired the Clank content into the existing shared language toggle flow so the selected language carries across homepage and Clank navigation.
+  - Added a dedicated Clank page stylesheet with a dungeon-and-treasure visual direction that stays separate from the homepage and Total Rickall styles.
+- Exact scope completed:
+  - Feature-001 from `src/vibe/epics/Epic-002/features.txt`.
+- Existing components/hooks/utilities/styles considered:
+  - Reviewed the existing shared route shell in `src/app/AppShell.jsx`.
+  - Reviewed the app-level bilingual content registry in `src/app/appContent.js`.
+  - Reviewed the homepage button pattern in `src/pages/home/home.jsx`.
+  - Reviewed the existing page-folder and section-rendering pattern used by `src/pages/totalRickall/`.
+- What was reused:
+  - Reused the existing app shell, route structure, language toggle state, homepage action pattern, and page-folder convention under `src/pages/`.
+- What was newly created:
+  - `src/pages/clank/clank.jsx`
+  - `src/pages/clank/clank.scss`
+  - `src/pages/clank/clankContent.js`
+- Why new code was needed where reuse was not possible:
+  - A new feature-local page and content file were needed because Clank introduces its own route, its own rules reference content, and its own visual styling that should not be mixed into the existing Total Rickall files.
+- Files changed:
+  - `src/App.jsx`
+  - `src/App.test.jsx`
+  - `src/app/appContent.js`
+  - `src/pages/clank/clank.jsx`
+  - `src/pages/clank/clank.scss`
+  - `src/pages/clank/clankContent.js`
+  - `src/pages/home/home.jsx`
+  - `src/pages/home/home.scss`
+  - `src/vibe/epics/Epic-002/features.txt`
+  - `src/vibe/epics/Epic-002/implementation.txt`
+  - `src/vibe/epics/Epic-002/testing.txt`
+  - `src/vibe/epicsOverview.txt`
+- What was intentionally not changed:
+  - No new routes beyond `/clank` were added.
+  - The existing Total Rickall content and styling were left unchanged.
+  - The homepage layout was not redesigned beyond adding the requested Clank button.
+  - No images, interactive tools, or exact official card-text translations were added for Clank.
+- Assumptions made:
+  - “The selected language should persist when moving between pages” was implemented through the existing app-level React state and route shell, not browser storage, because persistence across refreshes was not requested.
+  - The market guide requirement was satisfied with bilingual term headings plus language-specific explanations on each page version.
+- Tradeoffs or follow-up tasks:
+  - `npm run lint` is still unavailable because the project does not currently define a lint script.
+  - A manual browser pass remains useful for checking the final Clank styling feel on a real mobile viewport.
 - No implementation entries yet.
 
 Entry template
