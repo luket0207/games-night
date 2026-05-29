@@ -1,20 +1,32 @@
 {
   "files": {
-    "main.css": "/games-night/static/css/main.3c5f725a.css",
-    "main.js": "/games-night/static/js/main.193e3c95.js",
+    "main.css": "/games-night/static/css/main.bd646538.css",
+    "main.js": "/games-night/static/js/main.efaaa033.js",
     "static/media/InterVariable-Italic.woff2": "/games-night/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
     "static/media/InterVariable.woff2": "/games-night/static/media/InterVariable.a0e477f2f1f9d2376fde.woff2",
     "static/media/primeicons.svg": "/games-night/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/i-tried-to-shoot-summer-15-minutes-ago.jpeg": "/games-night/static/media/i-tried-to-shoot-summer-15-minutes-ago.a61abb7a2197b3eb3e52.jpeg",
+    "static/media/beth.jpeg": "/games-night/static/media/beth.3ed0f0afb1ad45a9a1fd.jpeg",
+    "static/media/you-cant-kill-me.jpeg": "/games-night/static/media/you-cant-kill-me.da1598062865de45ae8e.jpeg",
+    "static/media/summer.jpeg": "/games-night/static/media/summer.6bac40fba5e37c104211.jpeg",
+    "static/media/morty.jpeg": "/games-night/static/media/morty.24e37b165a7dfd96ac68.jpeg",
+    "static/media/jerry.jpeg": "/games-night/static/media/jerry.17d96ebd43a53bc25ad4.jpeg",
+    "static/media/is-something-wrong-beth.jpeg": "/games-night/static/media/is-something-wrong-beth.e29b965543a022f727b0.jpeg",
+    "static/media/ive-known-you-for-15-years.jpeg": "/games-night/static/media/ive-known-you-for-15-years.25afe916bd6aa8ba2d8a.jpeg",
+    "static/media/me-too.jpeg": "/games-night/static/media/me-too.08194de43339ac5b672e.jpeg",
+    "static/media/bitch-of-a-sister.jpeg": "/games-night/static/media/bitch-of-a-sister.5b6e7a7bd8f39ecc83f6.jpeg",
+    "static/media/rick.jpeg": "/games-night/static/media/rick.bcc536022f93e06345ad.jpeg",
+    "static/media/mr-poopybutthole.jpeg": "/games-night/static/media/mr-poopybutthole.fe61dd4754d59b428bb7.jpeg",
     "static/media/primeicons.eot": "/games-night/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
     "static/media/primeicons.woff": "/games-night/static/media/primeicons.8931fda1930c3bd21e96.woff",
     "static/media/primeicons.ttf": "/games-night/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
     "static/media/primeicons.woff2": "/games-night/static/media/primeicons.024b32cc7bf399b1a847.woff2",
     "index.html": "/games-night/index.html",
-    "main.3c5f725a.css.map": "/games-night/static/css/main.3c5f725a.css.map",
-    "main.193e3c95.js.map": "/games-night/static/js/main.193e3c95.js.map"
+    "main.bd646538.css.map": "/games-night/static/css/main.bd646538.css.map",
+    "main.efaaa033.js.map": "/games-night/static/js/main.efaaa033.js.map"
   },
   "entrypoints": [
-    "static/css/main.3c5f725a.css",
-    "static/js/main.193e3c95.js"
+    "static/css/main.bd646538.css",
+    "static/js/main.efaaa033.js"
   ]
 }
